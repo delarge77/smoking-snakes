@@ -1,0 +1,83 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
+
+// Components
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Music from './pages/Music';
+import Tour from './pages/Tour';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Merchandise from './pages/Merchandise';
+import Videos from './pages/Videos';
+
+// Hooks
+import useScrollToTop from './hooks/useScrollToTop';
+
+const AppContainer = styled.div`
+  min-height: 100vh;
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+`;
+
+const MainContent = styled(motion.main)`
+  min-height: calc(100vh - 140px);
+  position: relative;
+  z-index: 2;
+`;
+
+// Component that handles scrolling to top (must be inside Router context)
+const ScrollToTop = () => {
+  useScrollToTop();
+  return null;
+};
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <AppContainer>
+        <Header />
+        <MainContent
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/videos" element={<Videos />} />
+            <Route path="/merchandise" element={<Merchandise />} />
+            <Route path="/tour" element={<Tour />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </MainContent>
+        <Footer />
+      </AppContainer>
+    </Router>
+  );
+}
+
+export default App;
