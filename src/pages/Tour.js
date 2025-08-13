@@ -8,6 +8,10 @@ const TourContainer = styled.div`
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const PageTitle = styled(motion.h1)`
@@ -30,9 +34,22 @@ const PageTitle = styled(motion.h1)`
 
 const TourGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
   margin-bottom: 4rem;
+  justify-items: center;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    justify-items: center;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
 `;
 
 const TourCard = styled(motion.div)`
@@ -43,6 +60,8 @@ const TourCard = styled(motion.div)`
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 500px;
   
   &:hover {
     transform: translateY(-5px);
@@ -64,6 +83,11 @@ const TourCard = styled(motion.div)`
   
   &:hover::before {
     transform: scaleX(1);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    max-width: 100%;
   }
 `;
 
@@ -107,6 +131,11 @@ const TourDetails = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
 `;
 
 const DetailItem = styled.div`

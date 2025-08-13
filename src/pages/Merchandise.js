@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaTshirt, 
   FaHatCowboy, 
@@ -8,7 +8,8 @@ import {
   FaGuitar, 
   FaGem, 
   FaCircle,
-  FaExternalLinkAlt
+  FaExternalLinkAlt,
+  FaTimes
 } from 'react-icons/fa';
 
 /*
@@ -116,6 +117,14 @@ const MerchandiseImage = styled.img`
   border-radius: 12px;
   margin-bottom: 1.5rem;
   border: 2px solid rgba(255, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    border-color: #ff0000;
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+  }
 `;
 
 const MerchandiseTitle = styled.h3`
@@ -216,22 +225,102 @@ const CartIcon = styled.div`
 
 const CartLabel = styled.div`
   position: fixed;
-  top: 5.5rem;
+  top: 6rem;
   right: 2rem;
   color: #ffffff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
   text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   z-index: 9999;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   
   @media (max-width: 768px) {
-    top: 4.5rem;
+    top: 5rem;
     right: 1rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 `;
 
+const ImageModal = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 0.5rem;
+  overflow: auto;
+`;
+
+const ModalContent = styled(motion.div)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 4rem;
+`;
+
+const ModalImage = styled.img`
+  max-width: 60vw;
+  max-height: 50vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(255, 0, 0, 0.3);
+  display: block;
+  margin: 0 auto;
+`;
+
+const CloseButton = styled.button`
+  position: fixed;
+  top: 3rem;
+  right: 2rem;
+  background: linear-gradient(45deg, #ff0000, #cc0000);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  z-index: 10001;
+  
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+  }
+  
+  @media (max-width: 768px) {
+    top: 2rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+`;
+
+const ModalTitle = styled.h3`
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-align: center;
+  max-width: 600px;
+`;
 
 
 const Merchandise = () => {
@@ -255,7 +344,7 @@ const Merchandise = () => {
       price: "€6 EUR",
       priceUSD: 6.50,
       description: "Smoking Snakes RAWK guitar pick bundle. Perfect for guitarists and collectors. Multiple picks with the band's logo.",
-      image: "/band-photo-1.jpg",
+      image: "/pics.jpg",
       available: true,
       link: "https://smokingsnakes.bandcamp.com/merch"
     },
@@ -266,7 +355,7 @@ const Merchandise = () => {
       price: "€20 EUR",
       priceUSD: 21.70,
       description: "Unique Smoking Snakes Military Identification Necklace. A distinctive piece of band merchandise with military-style design.",
-      image: "/band-photo-2.jpg",
+      image: "/necklace.jpg",
       available: true,
       link: "https://smokingsnakes.bandcamp.com/merch"
     },
@@ -288,7 +377,7 @@ const Merchandise = () => {
       price: "€8 EUR",
       priceUSD: 8.70,
       description: "🐍 Classic Smoking Snakes logo patch. No frills, just filth. Perfect for jackets, bags, or anywhere you want to show your support.",
-      image: "/band-photo-4.jpg",
+      image: "/patch.jpg",
       available: true,
       link: "https://smokingsnakes.bandcamp.com/merch"
     },
@@ -299,7 +388,7 @@ const Merchandise = () => {
       price: "€12 EUR",
       priceUSD: 13.00,
       description: "🔥 Limited edition patch featuring the iconic 'Scandinavian Premium Sleaze Metal' design. High-quality embroidery on premium fabric.",
-      image: "/band-photo-3.jpg",
+      image: "/premium-patch.jpg",
       available: true,
       link: "https://smokingsnakes.bandcamp.com/merch"
     },
@@ -310,7 +399,7 @@ const Merchandise = () => {
       price: "€35 EUR",
       priceUSD: 38.00,
       description: "Limited edition red vinyl LP of 'Danger Zone'. Includes digital download and exclusive artwork. Limited to 500 copies worldwide.",
-      image: "/danger-zone-album-cover.jpg",
+      image: "/vinyl.jpg",
       available: true,
       link: "https://smokingsnakes.bandcamp.com/merch"
     },
@@ -321,12 +410,28 @@ const Merchandise = () => {
       price: "€28 EUR",
       priceUSD: 30.50,
       description: "Classic Smoking Snakes logo t-shirt. Comfortable fit with the band's signature logo prominently displayed. Available in multiple sizes.",
-      image: "/tshirt.jpg",
+      image: "/classic-t-shirt.jpg",
       available: true,
       link: "https://smokingsnakes.bandcamp.com/merch",
       sizes: ["S", "M", "L", "XL", "XXL"]
     }
   ];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedTitle, setSelectedTitle] = useState('');
+
+  const openModal = (imageUrl, title) => {
+    setSelectedImage(imageUrl);
+    setSelectedTitle(title);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage('');
+    setSelectedTitle('');
+  };
 
   return (
     <MerchandiseContainer>
@@ -349,6 +454,7 @@ const Merchandise = () => {
             <MerchandiseImage
               src={item.image}
               alt={item.title}
+              onClick={() => openModal(item.image, item.title)}
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'flex';
@@ -421,6 +527,28 @@ const Merchandise = () => {
         <FaExternalLinkAlt />
       </CartIcon>
       <CartLabel>Bandcamp Store</CartLabel>
+
+                    <AnimatePresence>
+          {isModalOpen && selectedImage && (
+            <ImageModal
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeModal}
+            >
+              <ModalContent>
+                <ModalImage
+                  src={selectedImage}
+                  alt="Enlarged Merchandise"
+                />
+                <CloseButton onClick={closeModal}>
+                  <FaTimes />
+                </CloseButton>
+                <ModalTitle>{selectedTitle}</ModalTitle>
+              </ModalContent>
+            </ImageModal>
+          )}
+        </AnimatePresence>
     </MerchandiseContainer>
   );
 };

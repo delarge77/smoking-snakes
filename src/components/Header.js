@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaMusic, FaHome, FaCalendarAlt, FaInfoCircle, FaEnvelope, FaVideo, FaTshirt, FaFileAlt } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
@@ -99,9 +99,14 @@ const MobileMenuButton = styled.button`
   color: #ffffff;
   font-size: 1.5rem;
   cursor: pointer;
+  padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
   
   @media (max-width: 768px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -113,12 +118,16 @@ const MobileMenu = styled(motion.div)`
   bottom: 0;
   background: rgba(0, 0, 0, 0.98);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: flex-start;
+  gap: 1.5rem;
   z-index: 1001;
+  padding: 6rem 1rem 2rem 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 `;
 
 const MobileNavLink = styled(Link)`
@@ -132,10 +141,20 @@ const MobileNavLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  min-height: 60px;
+  width: 100%;
+  max-width: 300px;
+  justify-content: center;
+  text-align: center;
   
   &:hover {
     color: #ff0000;
     background: rgba(255, 0, 0, 0.1);
+  }
+  
+  &:active {
+    color: #ff0000;
+    background: rgba(255, 0, 0, 0.2);
   }
 `;
 
@@ -191,6 +210,7 @@ const Header = () => {
   const pressKitUrl = '/Smoking-Snakes-Press-Kit.html';
 
   const toggleMobileMenu = () => {
+    console.log('Toggle mobile menu, current state:', isMobileMenuOpen);
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
@@ -227,31 +247,38 @@ const Header = () => {
         </MobileMenuButton>
       </Nav>
       
-      {isMobileMenuOpen && (
-        <MobileMenu
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <CloseButton onClick={closeMobileMenu}>
-            <FaTimes />
-          </CloseButton>
-          {navItems.map((item) => (
-            <MobileNavLink
-              key={item.path}
-              to={item.path}
-              onClick={closeMobileMenu}
-            >
-              {item.icon}
-              {item.label}
-            </MobileNavLink>
-          ))}
-          <MobilePressKitLink href={pressKitUrl} target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
-            <FaFileAlt />
-            Press Kit
-          </MobilePressKitLink>
-        </MobileMenu>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <MobileMenu
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <CloseButton onClick={closeMobileMenu}>
+              <FaTimes />
+            </CloseButton>
+            {console.log('Rendering mobile menu with items:', navItems)}
+            {navItems.map((item) => {
+              console.log('Rendering item:', item);
+              return (
+                <MobileNavLink
+                  key={item.path}
+                  to={item.path}
+                  onClick={closeMobileMenu}
+                >
+                  {item.icon}
+                  {item.label}
+                </MobileNavLink>
+              );
+            })}
+            <MobilePressKitLink href={pressKitUrl} target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
+              <FaFileAlt />
+              Press Kit
+            </MobilePressKitLink>
+          </MobileMenu>
+        )}
+      </AnimatePresence>
     </HeaderContainer>
   );
 };

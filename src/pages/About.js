@@ -9,6 +9,10 @@ const AboutContainer = styled.div`
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const PageTitle = styled(motion.h1)`
@@ -105,6 +109,12 @@ const MembersGrid = styled.div`
   gap: 2rem;
   position: relative;
   z-index: 2;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.5rem;
+  }
 `;
 
 const MemberCard = styled(motion.div)`
@@ -122,6 +132,11 @@ const MemberCard = styled(motion.div)`
     border-color: #ff0000;
     box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
   }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const MemberAvatar = styled.img`
@@ -133,6 +148,16 @@ const MemberAvatar = styled.img`
   object-position: center;
   border: 3px solid #ff0000;
   background: rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 180px;
+    height: 180px;
+  }
 `;
 
 const MemberName = styled.h3`
