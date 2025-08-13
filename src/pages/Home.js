@@ -305,6 +305,43 @@ const AwardsText = styled.p`
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 `;
 
+const SpotifyPlayer = styled.section`
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 2rem;
+  text-align: center;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    margin: 0.5rem 1rem;
+  }
+`;
+
+const SpotifyPlayerTitle = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ff0000;
+  font-family: 'Orbitron', 'Arial Black', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const SpotifyEmbedContainer = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+`;
+
 const Home = () => {
   return (
     <HomeContainer>
@@ -370,6 +407,34 @@ const Home = () => {
           </BuyAlbumButton>
         </BuyAlbumSection>
       </LatestRelease>
+
+      <SpotifyPlayer>
+        <SpotifyPlayerTitle
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          Spotify
+        </SpotifyPlayerTitle>
+        <SpotifyEmbedContainer
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <iframe
+            style={{ borderRadius: '12px' }}
+            src="https://open.spotify.com/embed/artist/4QanEE5Wrkq1JhWMpWKz4f?utm_source=generator"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowFullScreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </SpotifyEmbedContainer>
+      </SpotifyPlayer>
 
       <FeaturedSection>
         <SectionTitle
