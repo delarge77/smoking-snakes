@@ -12,6 +12,14 @@ const HeaderContainer = styled.header`
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+  
+  @media (max-width: 1024px) {
+    padding: 1rem 1.5rem;
+  }
+  
+  @media (max-width: 900px) {
+    padding: 1rem;
+  }
 `;
 
 const Nav = styled.nav`
@@ -39,19 +47,43 @@ const LogoImage = styled.img`
   max-width: 1600px;
   margin: -100px 0;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    height: 350px;
+    max-width: 1400px;
+    margin: -90px 0;
+  }
+  
+  @media (max-width: 900px) {
     height: 320px;
     max-width: 1200px;
     margin: -80px 0;
   }
+  
+  @media (max-width: 768px) {
+    height: 280px;
+    max-width: 1000px;
+    margin: -70px 0;
+  }
 `;
 
 const NavLinks = styled.div`
-  display: flex;
+  display: flex !important;
   gap: 2rem;
   
-  @media (max-width: 768px) {
-    display: none;
+  @media (max-width: 1200px) {
+    gap: 1.5rem !important;
+  }
+  
+  @media (max-width: 1024px) {
+    gap: 1rem !important;
+  }
+  
+  @media (max-width: 950px) {
+    gap: 0.8rem !important;
+  }
+  
+  @media (max-width: 900px) {
+    display: none !important;
   }
 `;
 
@@ -69,6 +101,21 @@ const NavLink = styled(Link)`
   &:hover {
     color: #ff0000;
     background: rgba(255, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 1200px) {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  @media (max-width: 1024px) {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  @media (max-width: 950px) {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.8rem !important;
   }
 `;
 
@@ -90,6 +137,25 @@ const PressKitLink = styled.a`
     background: rgba(255, 0, 0, 0.3);
     border-color: #ff0000;
   }
+  
+  @media (max-width: 1200px) {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  @media (max-width: 1024px) {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  @media (max-width: 950px) {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  @media (max-width: 900px) {
+    display: none !important;
+  }
 `;
 
 const MobileMenuButton = styled.button`
@@ -103,8 +169,8 @@ const MobileMenuButton = styled.button`
   min-width: 44px;
   min-height: 44px;
   
-  @media (max-width: 768px) {
-    display: flex;
+  @media (max-width: 900px) {
+    display: flex !important;
     align-items: center;
     justify-content: center;
   }
