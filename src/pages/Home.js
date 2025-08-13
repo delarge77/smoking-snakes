@@ -9,6 +9,8 @@ const HomeContainer = styled.div`
   min-height: 100vh;
 `;
 
+
+
 const HeroSection = styled.section`
   height: 100vh;
   display: flex;

@@ -13,6 +13,14 @@ const CarouselContainer = styled.div`
   overflow: hidden;
   z-index: 1;
   background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #2d0000 100%);
+  
+  @media (max-width: 768px) {
+    height: 50vh;
+  }
+  
+  @media (max-width: 480px) {
+    height: 40vh;
+  }
 `;
 
 const CarouselSlide = styled(motion.div)`
@@ -25,6 +33,11 @@ const CarouselSlide = styled(motion.div)`
   background-position: center 20%;
   background-repeat: no-repeat;
   background-color: #1a1a1a;
+  
+  @media (max-width: 768px) {
+    background-size: cover;
+    background-position: center center;
+  }
 `;
 
 const CarouselOverlay = styled.div`
@@ -48,6 +61,11 @@ const CarouselDots = styled.div`
   display: flex;
   gap: 12px;
   z-index: 3;
+  
+  @media (max-width: 768px) {
+    bottom: 15px;
+    gap: 10px;
+  }
 `;
 
 const CarouselArrow = styled.button`
@@ -123,6 +141,11 @@ const CarouselContent = styled(motion.div)`
   z-index: 3;
   max-width: 800px;
   width: 90%;
+  
+  @media (max-width: 768px) {
+    bottom: 60px;
+    width: 95%;
+  }
 `;
 
 const CarouselSubtitle = styled(motion.p)`
@@ -138,6 +161,13 @@ const CarouselSubtitle = styled(motion.p)`
   @media (max-width: 768px) {
     font-size: 1.5rem;
     letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.6rem;
   }
 `;
 
