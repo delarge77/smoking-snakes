@@ -265,7 +265,7 @@ const Footer = () => {
 
         <FooterBottom>
           <Copyright>
-            © 2024 Smoking Snakes. All rights reserved. | Privacy Policy | Terms of Service
+            © 2025 Smoking Snakes. All rights reserved. | Privacy Policy | Terms of Service
           </Copyright>
           <MadeWithLove>
             Made with <FaHeart /> for music lovers everywhere
