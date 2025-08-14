@@ -11,6 +11,7 @@ import {
   FaExternalLinkAlt,
   FaTimes
 } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 /*
   BANDCAMP INTEGRATION:
@@ -434,99 +435,104 @@ const Merchandise = () => {
   };
 
   return (
-    <MerchandiseContainer>
-      <PageTitle
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Merchandise
-      </PageTitle>
+    <>
+      <Helmet>
+        <title>Merchandise | Smoking Snakes - Sleaze Metal from Gothenburg - Sweden</title>
+        <meta name="description" content="Official Smoking Snakes merchandise – T-shirts, vinyl, patches, and more from our Gothenburg sleaze metal band. Shop our official merch collection." />
+      </Helmet>
+      <MerchandiseContainer>
+        <PageTitle
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Merchandise
+        </PageTitle>
 
-      <MerchandiseGrid>
-        {merchandiseItems.map((item, index) => (
-          <MerchandiseCard
-            key={item.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-          >
-            <MerchandiseImage
-              src={item.image}
-              alt={item.title}
-              onClick={() => openModal(item.image, item.title)}
-              onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'flex';
-              }}
-            />
-            <div style={{ 
-              display: 'none', 
-              width: '100%', 
-              height: '200px', 
-              background: 'linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #400000 100%)', 
-              borderRadius: '12px', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              fontSize: '3rem', 
-              color: '#ff0000' 
-            }}>
-              {item.category === 'Shirt' ? <FaTshirt /> : 
-               item.category === 'Hat' ? <FaHatCowboy /> : 
-               item.category === 'Vinyl' ? <FaMusic /> : 
-               item.category === 'Button/Pin/Patch' ? <FaGuitar /> : 
-               item.category === 'Other Apparel' ? <FaGem /> : <FaCircle />}
-            </div>
-            
-            <MerchandiseTitle>
-              {item.title}
-            </MerchandiseTitle>
-            
-
-            
-
-            
-            <MerchandiseDescription>
-              {item.description}
-            </MerchandiseDescription>
-            
-            {item.available && (
-              <>
-
-                
-                <AddToCartButton
-                  onClick={() => window.open(item.link, '_blank')}
-                >
-                  <FaExternalLinkAlt />
-                  Buy on Bandcamp
-                </AddToCartButton>
-                
-
-              </>
-            )}
-            
-            {!item.available && (
-              <div style={{
-                background: '#666666',
-                color: '#ffffff',
-                padding: '0.5rem 1rem',
-                borderRadius: '8px',
-                fontWeight: '600',
-                textAlign: 'center',
-                marginTop: '1rem'
+        <MerchandiseGrid>
+          {merchandiseItems.map((item, index) => (
+            <MerchandiseCard
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+            >
+              <MerchandiseImage
+                src={item.image}
+                alt={item.title}
+                onClick={() => openModal(item.image, item.title)}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div style={{ 
+                display: 'none', 
+                width: '100%', 
+                height: '200px', 
+                background: 'linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #400000 100%)', 
+                borderRadius: '12px', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                fontSize: '3rem', 
+                color: '#ff0000' 
               }}>
-                SOLD OUT
+                {item.category === 'Shirt' ? <FaTshirt /> : 
+                 item.category === 'Hat' ? <FaHatCowboy /> : 
+                 item.category === 'Vinyl' ? <FaMusic /> : 
+                 item.category === 'Button/Pin/Patch' ? <FaGuitar /> : 
+                 item.category === 'Other Apparel' ? <FaGem /> : <FaCircle />}
               </div>
-            )}
-          </MerchandiseCard>
-        ))}
-      </MerchandiseGrid>
-      
-      {/* Bandcamp Store Link */}
-      <CartIcon onClick={() => window.open('https://smokingsnakes.bandcamp.com/merch', '_blank')}>
-        <FaExternalLinkAlt />
-      </CartIcon>
-      <CartLabel>Bandcamp Store</CartLabel>
+              
+              <MerchandiseTitle>
+                {item.title}
+              </MerchandiseTitle>
+              
+
+              
+
+              
+              <MerchandiseDescription>
+                {item.description}
+              </MerchandiseDescription>
+              
+              {item.available && (
+                <>
+
+                  
+                  <AddToCartButton
+                    onClick={() => window.open(item.link, '_blank')}
+                  >
+                    <FaExternalLinkAlt />
+                    Buy on Bandcamp
+                  </AddToCartButton>
+                  
+
+                </>
+              )}
+              
+              {!item.available && (
+                <div style={{
+                  background: '#666666',
+                  color: '#ffffff',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '8px',
+                  fontWeight: '600',
+                  textAlign: 'center',
+                  marginTop: '1rem'
+                }}>
+                  SOLD OUT
+                </div>
+              )}
+            </MerchandiseCard>
+          ))}
+        </MerchandiseGrid>
+        
+        {/* Bandcamp Store Link */}
+        <CartIcon onClick={() => window.open('https://smokingsnakes.bandcamp.com/merch', '_blank')}>
+          <FaExternalLinkAlt />
+        </CartIcon>
+        <CartLabel>Bandcamp Store</CartLabel>
 
                     <AnimatePresence>
           {isModalOpen && selectedImage && (
@@ -549,7 +555,8 @@ const Merchandise = () => {
             </ImageModal>
           )}
         </AnimatePresence>
-    </MerchandiseContainer>
+      </MerchandiseContainer>
+    </>
   );
 };
 

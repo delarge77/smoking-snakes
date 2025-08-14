@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaYoutube, FaCalendar, FaEye, FaHeart } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const VideosContainer = styled.div`
   max-width: 1200px;
@@ -205,47 +206,53 @@ const Videos = () => {
 
 
   return (
-    <VideosContainer>
-      <PageTitle>Videos</PageTitle>
+    <>
+      <Helmet>
+        <title>Videos | Smoking Snakes - Sleaze Metal from Gothenburg - Sweden</title>
+        <meta name="description" content="Watch Smoking Snakes videos – Music videos, live performances, and behind-the-scenes content from our Gothenburg sleaze metal band." />
+      </Helmet>
+      <VideosContainer>
+        <PageTitle>Videos</PageTitle>
 
 
 
-      <VideosGrid>
-        {videos.map((video) => (
-          <VideoCard
-            key={video.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ scale: 1.02 }}
+        <VideosGrid>
+          {videos.map((video) => (
+            <VideoCard
+              key={video.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <VideoThumbnail>
+                <YouTubeEmbed
+                  src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </VideoThumbnail>
+              
+              <VideoInfo>
+              </VideoInfo>
+            </VideoCard>
+          ))}
+        </VideosGrid>
+
+        <ChannelSection>
+          <ChannelButton 
+            href="https://www.youtube.com/@smokingsnakesofsweden" 
+            target="_blank" 
+            rel="noopener noreferrer"
           >
-            <VideoThumbnail>
-              <YouTubeEmbed
-                src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
-                title={video.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </VideoThumbnail>
-            
-            <VideoInfo>
-            </VideoInfo>
-          </VideoCard>
-        ))}
-      </VideosGrid>
+            <FaYoutube />
+            Subscribe to YouTube Channel
+          </ChannelButton>
+        </ChannelSection>
 
-      <ChannelSection>
-        <ChannelButton 
-          href="https://www.youtube.com/@smokingsnakesofsweden" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <FaYoutube />
-          Subscribe to YouTube Channel
-        </ChannelButton>
-      </ChannelSection>
-
-    </VideosContainer>
+      </VideosContainer>
+    </>
   );
 };
 

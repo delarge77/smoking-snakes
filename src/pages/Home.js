@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaPlay, FaSpotify, FaApple, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 import ImageCarousel from '../components/ImageCarousel';
 
 const HomeContainer = styled.div`
@@ -49,10 +50,14 @@ const HeroLogo = styled.img`
   }
 `;
 
-const HeroSubtitle = styled(motion.p)`
+const HeroSubtitle = styled(motion.h2)`
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: #cccccc;
+  font-family: 'Orbitron', 'Arial Black', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -344,166 +349,172 @@ const SpotifyEmbedContainer = styled.div`
 
 const Home = () => {
   return (
-    <HomeContainer>
-      <HeroSection>
-        <ImageCarousel />
-        <HeroContent
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
+    <>
+      <Helmet>
+        <title>Smoking Snakes - Official Website | Sleaze Metal from Gothenburg - Sweden</title>
+        <meta name="description" content="Official home of Smoking Snakes – Sleaze Metal from Gothenburg, Sweden. Music, merch, tour dates, and news." />
 
-
-
-        </HeroContent>
-      </HeroSection>
-
-      <LatestRelease>
-        <SectionTitle
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Debut Album
-        </SectionTitle>
-        <AlbumCover
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            backgroundImage: 'url(/danger-zone-album-cover.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
-        <AlbumTitle>"Danger Zone"</AlbumTitle>
-        <AlbumDescription>
-          "Danger Zone," the debut album from Swedish band Smoking Snakes, is a high-energy sleaze metal record that pays homage to 80s hard rock and metal, particularly bands like W.A.S.P., RATT, and Dokken. Reviews praise the album's catchy, anthemic choruses, driving rhythms, and electrifying guitar riffs, noting the band's youthful energy and strong musicianship. Available on all digital platforms.
-        </AlbumDescription>
-        <StreamingButtons>
-          <StreamingButton href="https://open.spotify.com/artist/4QanEE5Wrkq1JhWMpWKz4f?si=tYmQ49OiQT-KxGhyFoTEmA" target="_blank">
-            <FaSpotify />
-            Spotify
-          </StreamingButton>
-          <StreamingButton href="https://music.apple.com/us/artist/smoking-snakes/1618982403" target="_blank">
-            <FaApple />
-            Apple Music
-          </StreamingButton>
-          <StreamingButton href="https://youtube.com/@smokingsnakesofsweden" target="_blank">
-            <FaYoutube />
-            YouTube
-          </StreamingButton>
-        </StreamingButtons>
-        
-        <BuyAlbumSection>
-          <BuyAlbumButton 
-            href="https://www.frontiers.it/artist/2192" 
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FrontiersLogo src="/frontiers.png" alt="Frontiers Records" />
-            <span>Buy the Album</span>
-          </BuyAlbumButton>
-        </BuyAlbumSection>
-      </LatestRelease>
-
-      <SpotifyPlayer>
-        <SpotifyPlayerTitle
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Spotify
-        </SpotifyPlayerTitle>
-        <SpotifyEmbedContainer
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <iframe
-            style={{ borderRadius: '12px' }}
-            src="https://open.spotify.com/embed/artist/4QanEE5Wrkq1JhWMpWKz4f?utm_source=generator"
-            width="100%"
-            height="352"
-            frameBorder="0"
-            allowFullScreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        </SpotifyEmbedContainer>
-      </SpotifyPlayer>
-
-      <FeaturedSection>
-        <SectionTitle
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Reviews
-        </SectionTitle>
-        <FeaturedGrid>
-          <FeaturedCard
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <CardIcon>🏆</CardIcon>
-            <CardTitle>Metal Temple - 10/10 Masterpiece</CardTitle>
-            <CardDescription>
-              "Danger Zone" receives a perfect score! Metal Temple praises our high-energy sleaze metal sound, 
-              calling it "a sleaze metal masterpiece" with "electrifying" performances.
-            </CardDescription>
-            <CardLink href="https://metal-temple.com/review/smoking-snakes-danger-zone/" target="_blank">
-              Read Full Review →
-            </CardLink>
-          </FeaturedCard>
-          <FeaturedCard
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <CardIcon>📰</CardIcon>
-            <CardTitle>Metal Forces Magazine - 8/10</CardTitle>
-            <CardDescription>
-              "Strong debut full-length of driving heavy rock" with "swaggering metal that attracts the girls, 
-              kicks down doors and revs engines." Neil Arnold calls us "my new favourite band."
-            </CardDescription>
-            <CardLink href="https://www.metalforcesmagazine.com/site/album-review-smoking-snakes-danger-zone/" target="_blank">
-              Read Full Review →
-            </CardLink>
-          </FeaturedCard>
-          <FeaturedCard
+      </Helmet>
+      <HomeContainer>
+        <HeroSection>
+          <ImageCarousel />
+          <HeroContent
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
+          >
+
+          </HeroContent>
+        </HeroSection>
+
+        <LatestRelease>
+          <SectionTitle
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <CardIcon>🦘</CardIcon>
-            <CardTitle>Metal-Roos - Album of the Year Contender</CardTitle>
-            <CardDescription>
-              "A breathtaking debut" with "Album Of The Year aura" that "knocks listeners into the next fucking week...and beyond!" 
-              Iron Mathew calls it "superb album of highly head-banging and immensely infectious heavy metal."
-            </CardDescription>
-            <CardLink href="https://metal-roos.com.au/smoking-snakes-danger-zone-album-review/" target="_blank">
-              Read Full Review →
-            </CardLink>
-          </FeaturedCard>
+            Debut Album
+          </SectionTitle>
+          <AlbumCover
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              backgroundImage: 'url(/danger-zone-album-cover.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+            aria-label="Smoking Snakes Danger Zone album cover"
+          />
+          <AlbumTitle>"Danger Zone"</AlbumTitle>
+          <AlbumDescription>
+            "Danger Zone," the debut album from Swedish band Smoking Snakes, is a high-energy sleaze metal record that pays homage to 80s hard rock and metal, particularly bands like W.A.S.P., RATT, and Dokken. Reviews praise the album's catchy, anthemic choruses, driving rhythms, and electrifying guitar riffs, noting the band's youthful energy and strong musicianship. Available on all digital platforms.
+          </AlbumDescription>
+          <StreamingButtons>
+            <StreamingButton href="https://open.spotify.com/artist/4QanEE5Wrkq1JhWMpWKz4f?si=tYmQ49OiQT-KxGhyFoTEmA" target="_blank">
+              <FaSpotify />
+              Spotify
+            </StreamingButton>
+            <StreamingButton href="https://music.apple.com/us/artist/smoking-snakes/1618982403" target="_blank">
+              <FaApple />
+              Apple Music
+            </StreamingButton>
+            <StreamingButton href="https://youtube.com/@smokingsnakesofsweden" target="_blank">
+              <FaYoutube />
+              YouTube
+            </StreamingButton>
+          </StreamingButtons>
+          
+          <BuyAlbumSection>
+            <BuyAlbumButton 
+              href="https://www.frontiers.it/artist/2192" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FrontiersLogo src="/frontiers.png" alt="Frontiers Records" />
+              <span>Buy the Album</span>
+            </BuyAlbumButton>
+          </BuyAlbumSection>
+        </LatestRelease>
 
-        </FeaturedGrid>
-        
-        <AwardsSection>
-          <AwardsText>
-            Danger Zone was double-nominated at Rocknyttpriset 2024 — Album of the Year and Breakthrough of the Year. These nods cemented Smoking Snakes as one of Sweden's fastest-rising rock acts.
-          </AwardsText>
-        </AwardsSection>
-      </FeaturedSection>
-    </HomeContainer>
+        <SpotifyPlayer>
+          <SpotifyPlayerTitle
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Spotify
+          </SpotifyPlayerTitle>
+          <SpotifyEmbedContainer
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <iframe
+              style={{ borderRadius: '12px' }}
+              src="https://open.spotify.com/embed/artist/4QanEE5Wrkq1JhWMpWKz4f?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </SpotifyEmbedContainer>
+        </SpotifyPlayer>
+
+        <FeaturedSection>
+          <SectionTitle
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Reviews
+          </SectionTitle>
+          <FeaturedGrid>
+            <FeaturedCard
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <CardIcon>🏆</CardIcon>
+              <CardTitle>Metal Temple - 10/10 Masterpiece</CardTitle>
+              <CardDescription>
+                "Danger Zone" receives a perfect score! Metal Temple praises our high-energy sleaze metal sound, 
+                calling it "a sleaze metal masterpiece" with "electrifying" performances.
+              </CardDescription>
+              <CardLink href="https://metal-temple.com/review/smoking-snakes-danger-zone/" target="_blank">
+                Read Full Review →
+              </CardLink>
+            </FeaturedCard>
+            <FeaturedCard
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <CardIcon>📰</CardIcon>
+              <CardTitle>Metal Forces Magazine - 8/10</CardTitle>
+              <CardDescription>
+                "Strong debut full-length of driving heavy rock" with "swaggering metal that attracts the girls, 
+                kicks down doors and revs engines." Neil Arnold calls us "my new favourite band."
+              </CardDescription>
+              <CardLink href="https://www.metalforcesmagazine.com/site/album-review-smoking-snakes-danger-zone/" target="_blank">
+                Read Full Review →
+              </CardLink>
+            </FeaturedCard>
+            <FeaturedCard
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <CardIcon>🦘</CardIcon>
+              <CardTitle>Metal-Roos - Album of the Year Contender</CardTitle>
+              <CardDescription>
+                "A breathtaking debut" with "Album Of The Year aura" that "knocks listeners into the next fucking week...and beyond!" 
+                Iron Mathew calls it "superb album of highly head-banging and immensely infectious heavy metal."
+              </CardDescription>
+              <CardLink href="https://metal-roos.com.au/smoking-snakes-danger-zone-album-review/" target="_blank">
+                Read Full Review →
+              </CardLink>
+            </FeaturedCard>
+
+          </FeaturedGrid>
+          
+          <AwardsSection>
+            <AwardsText>
+              Danger Zone was double-nominated at Rocknyttpriset 2024 — Album of the Year and Breakthrough of the Year. These nods cemented Smoking Snakes as one of Sweden's fastest-rising rock acts.
+            </AwardsText>
+          </AwardsSection>
+        </FeaturedSection>
+      </HomeContainer>
+    </>
   );
 };
 

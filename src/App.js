@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 // Components
@@ -55,28 +56,30 @@ const ScrollToTop = () => {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <AppContainer>
-        <Header />
-        <MainContent
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/music" element={<Music />} />
-            <Route path="/videos" element={<Videos />} />
-            <Route path="/merchandise" element={<Merchandise />} />
-            <Route path="/tour" element={<Tour />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </MainContent>
-        <Footer />
-      </AppContainer>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <AppContainer>
+          <Header />
+          <MainContent
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/music" element={<Music />} />
+              <Route path="/videos" element={<Videos />} />
+              <Route path="/merchandise" element={<Merchandise />} />
+              <Route path="/tour" element={<Tour />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </MainContent>
+          <Footer />
+        </AppContainer>
+      </Router>
+    </HelmetProvider>
   );
 }
 

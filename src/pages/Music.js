@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaPlay, FaPause, FaSpotify, FaApple, FaYoutube, FaHeart, FaShare } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const MusicContainer = styled.div`
   min-height: 100vh;
@@ -206,50 +207,19 @@ const ActionButton = styled.button`
 `;
 
 const Music = () => {
-  const [currentSong, setCurrentSong] = useState(null);
+  const [currentTrack, setCurrentTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const albums = [
     {
       id: 1,
-      title: "Midnight Dreams",
+      title: "Danger Zone",
       year: "2024",
-      description: "Our latest album featuring powerful riffs and soulful melodies that take you on an emotional journey.",
-      cover: "🎵",
-      songs: [
-        { id: 1, title: "Midnight Dreams", duration: "4:32" },
-        { id: 2, title: "Electric Storm", duration: "3:45" },
-        { id: 3, title: "Lost in the City", duration: "5:18" },
-        { id: 4, title: "Fire and Ice", duration: "4:56" },
-        { id: 5, title: "Eternal Flame", duration: "6:12" }
-      ]
-    },
-    {
-      id: 2,
-      title: "Rebel Heart",
-      year: "2022",
-      description: "A collection of anthems that capture the spirit of rebellion and the power of rock music.",
-      cover: "🎸",
-      songs: [
-        { id: 6, title: "Rebel Heart", duration: "4:15" },
-        { id: 7, title: "Thunder Road", duration: "3:58" },
-        { id: 8, title: "Wild Spirit", duration: "4:42" },
-        { id: 9, title: "Breaking Chains", duration: "5:05" },
-        { id: 10, title: "Freedom Call", duration: "4:28" }
-      ]
-    },
-    {
-      id: 3,
-      title: "First Light",
-      year: "2020",
-      description: "Our debut album that introduced the world to our unique sound and musical vision.",
-      cover: "🌟",
-      songs: [
-        { id: 11, title: "First Light", duration: "4:08" },
-        { id: 12, title: "New Beginning", duration: "3:52" },
-        { id: 13, title: "Rising Sun", duration: "4:35" },
-        { id: 14, title: "Dawn of Tomorrow", duration: "5:20" },
-        { id: 15, title: "Endless Horizon", duration: "4:45" }
+      cover: "/danger-zone-album-cover.jpg",
+      tracks: [
+        { name: "Danger Zone", duration: "4:12", spotify: "https://open.spotify.com/track/..." },
+        { name: "Rock 'n' Roll", duration: "3:45", spotify: "https://open.spotify.com/track/..." },
+        { name: "Wild Child", duration: "4:20", spotify: "https://open.spotify.com/track/..." }
       ]
     }
   ];
@@ -264,89 +234,95 @@ const Music = () => {
   };
 
   return (
-    <MusicContainer>
-      <PageTitle
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Our Music
-      </PageTitle>
-
-      <AlbumGrid>
-        {albums.map((album, index) => (
-          <AlbumCard
-            key={album.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-          >
-            <AlbumCover>
-              {album.cover}
-              <PlayButton onClick={() => handlePlayPause(album.songs[0].id)}>
-                {isPlaying && currentSong === album.songs[0].id ? <FaPause /> : <FaPlay />}
-              </PlayButton>
-            </AlbumCover>
-            <AlbumInfo>
-              <AlbumTitle>{album.title}</AlbumTitle>
-              <AlbumYear>{album.year}</AlbumYear>
-              <AlbumDescription>{album.description}</AlbumDescription>
-              <StreamingLinks>
-                <StreamingButton href="https://open.spotify.com/artist/4QanEE5Wrkq1JhWMpWKz4f?si=tYmQ49OiQT-KxGhyFoTEmA" target="_blank">
-                  <FaSpotify />
-                  Spotify
-                </StreamingButton>
-                <StreamingButton href="https://music.apple.com/us/artist/smoking-snakes/1618982403" target="_blank">
-                  <FaApple />
-                  Apple Music
-                </StreamingButton>
-                <StreamingButton href="https://youtube.com/@smokingsnakesofsweden" target="_blank">
-                  <FaYoutube />
-                  YouTube
-                </StreamingButton>
-              </StreamingLinks>
-            </AlbumInfo>
-          </AlbumCard>
-        ))}
-      </AlbumGrid>
-
-      <SongsSection>
-        <SectionTitle
+    <>
+      <Helmet>
+        <title>Music | Smoking Snakes - Sleaze Metal from Gothenburg - Sweden</title>
+        <meta name="description" content="Listen to Smoking Snakes' sleaze metal music from Gothenburg. Stream 'Danger Zone' album, singles, and discover our 80s-inspired rock sound." />
+      </Helmet>
+      <MusicContainer>
+        <PageTitle
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          All Songs
-        </SectionTitle>
-        <SongList>
-          {albums.flatMap(album => album.songs).map((song, index) => (
-            <SongItem
-              key={song.id}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true }}
+          Our Music
+        </PageTitle>
+
+        <AlbumGrid>
+          {albums.map((album, index) => (
+            <AlbumCard
+              key={album.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <SongNumber>{String(index + 1).padStart(2, '0')}</SongNumber>
-              <SongTitle>{song.title}</SongTitle>
-              <SongDuration>{song.duration}</SongDuration>
-              <SongActions>
-                <ActionButton onClick={() => handlePlayPause(song.id)}>
-                  {isPlaying && currentSong === song.id ? <FaPause /> : <FaPlay />}
-                </ActionButton>
-                <ActionButton>
-                  <FaHeart />
-                </ActionButton>
-                <ActionButton>
-                  <FaShare />
-                </ActionButton>
-              </SongActions>
-            </SongItem>
+              <AlbumCover>
+                {album.cover}
+                <PlayButton onClick={() => handlePlayPause(album.songs[0].id)}>
+                  {isPlaying && currentSong === album.songs[0].id ? <FaPause /> : <FaPlay />}
+                </PlayButton>
+              </AlbumCover>
+              <AlbumInfo>
+                <AlbumTitle>{album.title}</AlbumTitle>
+                <AlbumYear>{album.year}</AlbumYear>
+                <AlbumDescription>{album.description}</AlbumDescription>
+                <StreamingLinks>
+                  <StreamingButton href="https://open.spotify.com/artist/4QanEE5Wrkq1JhWMpWKz4f?si=tYmQ49OiQT-KxGhyFoTEmA" target="_blank">
+                    <FaSpotify />
+                    Spotify
+                  </StreamingButton>
+                  <StreamingButton href="https://music.apple.com/us/artist/smoking-snakes/1618982403" target="_blank">
+                    <FaApple />
+                    Apple Music
+                  </StreamingButton>
+                  <StreamingButton href="https://youtube.com/@smokingsnakesofsweden" target="_blank">
+                    <FaYoutube />
+                    YouTube
+                  </StreamingButton>
+                </StreamingLinks>
+              </AlbumInfo>
+            </AlbumCard>
           ))}
-        </SongList>
-      </SongsSection>
-    </MusicContainer>
+        </AlbumGrid>
+
+        <SongsSection>
+          <SectionTitle
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            All Songs
+          </SectionTitle>
+          <SongList>
+            {albums.flatMap(album => album.songs).map((song, index) => (
+              <SongItem
+                key={song.id}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true }}
+              >
+                <SongNumber>{String(index + 1).padStart(2, '0')}</SongNumber>
+                <SongTitle>{song.title}</SongTitle>
+                <SongDuration>{song.duration}</SongDuration>
+                <SongActions>
+                  <ActionButton onClick={() => handlePlayPause(song.id)}>
+                    {isPlaying && currentSong === song.id ? <FaPause /> : <FaPlay />}
+                  </ActionButton>
+                  <ActionButton>
+                    <FaHeart />
+                  </ActionButton>
+                  <ActionButton>
+                    <FaShare />
+                  </ActionButton>
+                </SongActions>
+              </SongItem>
+            ))}
+          </SongList>
+        </SongsSection>
+      </MusicContainer>
+    </>
   );
 };
 

@@ -307,6 +307,7 @@ const ImageCarousel = () => {
           style={{
             backgroundImage: `url(${images[currentIndex]})`
           }}
+          aria-label={`Smoking Snakes band photo ${currentIndex + 1}`}
         />
       </AnimatePresence>
       

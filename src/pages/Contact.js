@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTiktok, FaInstagram, FaYoutube, FaSpotify, FaApple, FaPaperPlane, FaUser, FaComments, FaCalendar, FaPatreon } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const ContactContainer = styled.div`
   min-height: 100vh;
@@ -293,6 +294,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -345,169 +347,175 @@ const Contact = () => {
 
 
   return (
-    <ContactContainer>
-      <PageTitle
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Contact
-      </PageTitle>
-
-      <ContactGrid>
-        <ContactFormSection>
-          <FormTitle>Send Us a Message</FormTitle>
-          <ContactForm onSubmit={handleSubmit}>
-            <FormGroup>
-              <FormLabel htmlFor="name">Name *</FormLabel>
-              <FormInput
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Your full name"
-                required
-              />
-            </FormGroup>
-            
-            <FormGroup>
-              <FormLabel htmlFor="email">Email *</FormLabel>
-              <FormInput
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="your.email@example.com"
-                required
-              />
-            </FormGroup>
-            
-            <FormGroup>
-              <FormLabel htmlFor="subject">Subject *</FormLabel>
-              <FormInput
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                placeholder="What's this about?"
-                required
-              />
-            </FormGroup>
-            
-            <FormGroup>
-              <FormLabel htmlFor="message">Message *</FormLabel>
-              <FormTextarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Tell us what's on your mind..."
-                required
-              />
-            </FormGroup>
-            
-            <SubmitButton
-              type="submit"
-              disabled={isSubmitting}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {isSubmitting ? (
-                <>
-                  <FaComments />
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <FaPaperPlane />
-                  Send Message
-                </>
-              )}
-            </SubmitButton>
-          </ContactForm>
-        </ContactFormSection>
-
-        <ContactInfoSection>
-          <InfoTitle>Get in Touch</InfoTitle>
-          <ContactInfoList>
-            <ContactInfoItem>
-              <InfoIcon>
-                <FaEnvelope />
-              </InfoIcon>
-              <InfoContent>
-                <InfoLabel>Email</InfoLabel>
-                <InfoValue>smokingsnakesofsweden@gmail.com</InfoValue>
-              </InfoContent>
-            </ContactInfoItem>
-            
-            <ContactInfoItem>
-              <InfoIcon>
-                <FaMapMarkerAlt />
-              </InfoIcon>
-              <InfoContent>
-                <InfoLabel>Management</InfoLabel>
-                <InfoValue>Tripple Moose Management<br />tripplemoosemanagement@gmail.com</InfoValue>
-              </InfoContent>
-            </ContactInfoItem>
-            
-            <ContactInfoItem>
-              <InfoIcon>
-                <FaCalendar />
-              </InfoIcon>
-              <InfoContent>
-                <InfoLabel>Bookings</InfoLabel>
-                <InfoValue>
-                  <strong>Bookings:</strong><br />
-                  <div style={{ marginLeft: '1rem', marginTop: '0.5rem' }}>
-                    <strong>Sweden:</strong> jelencovich@me.com<br />
-                    <strong>Germany:</strong> anita@be-alive.eu<br />
-                    <a href="https://be-alive.eu" target="_blank" rel="noopener noreferrer" style={{ color: '#ff0000', textDecoration: 'none' }}>be-alive.eu</a>
-                  </div>
-                </InfoValue>
-              </InfoContent>
-            </ContactInfoItem>
-          </ContactInfoList>
-          
-
-        </ContactInfoSection>
-      </ContactGrid>
-
-      <SocialMediaSection>
-        <SectionTitle
+    <>
+      <Helmet>
+        <title>Contact | Smoking Snakes - Sleaze Metal from Gothenburg - Sweden</title>
+        <meta name="description" content="Contact Smoking Snakes – Get in touch with our Gothenburg sleaze metal band for bookings, press, or fan messages. Management and booking info included." />
+      </Helmet>
+      <ContactContainer>
+        <PageTitle
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          Follow Us
-        </SectionTitle>
-        <SocialGrid>
-          {socialMedia.map((social, index) => (
-            <SocialCard
-              key={index}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <SocialIcon style={{ color: social.color }}>
-                {social.icon}
-              </SocialIcon>
-              <SocialName>{social.name}</SocialName>
-              <SocialHandle>{social.handle}</SocialHandle>
-            </SocialCard>
-          ))}
-        </SocialGrid>
-      </SocialMediaSection>
+          Contact
+        </PageTitle>
+
+        <ContactGrid>
+          <ContactFormSection>
+            <FormTitle>Send Us a Message</FormTitle>
+            <ContactForm onSubmit={handleSubmit}>
+              <FormGroup>
+                <FormLabel htmlFor="name">Name *</FormLabel>
+                <FormInput
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Your full name"
+                  required
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <FormLabel htmlFor="email">Email *</FormLabel>
+                <FormInput
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="your.email@example.com"
+                  required
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <FormLabel htmlFor="subject">Subject *</FormLabel>
+                <FormInput
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  placeholder="What's this about?"
+                  required
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <FormLabel htmlFor="message">Message *</FormLabel>
+                <FormTextarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Tell us what's on your mind..."
+                  required
+                />
+              </FormGroup>
+              
+              <SubmitButton
+                type="submit"
+                disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {isSubmitting ? (
+                  <>
+                    <FaComments />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <FaPaperPlane />
+                    Send Message
+                  </>
+                )}
+              </SubmitButton>
+            </ContactForm>
+          </ContactFormSection>
+
+          <ContactInfoSection>
+            <InfoTitle>Get in Touch</InfoTitle>
+            <ContactInfoList>
+              <ContactInfoItem>
+                <InfoIcon>
+                  <FaEnvelope />
+                </InfoIcon>
+                <InfoContent>
+                  <InfoLabel>Email</InfoLabel>
+                  <InfoValue>smokingsnakesofsweden@gmail.com</InfoValue>
+                </InfoContent>
+              </ContactInfoItem>
+              
+              <ContactInfoItem>
+                <InfoIcon>
+                  <FaMapMarkerAlt />
+                </InfoIcon>
+                <InfoContent>
+                  <InfoLabel>Management</InfoLabel>
+                  <InfoValue>Tripple Moose Management<br />tripplemoosemanagement@gmail.com</InfoValue>
+                </InfoContent>
+              </ContactInfoItem>
+              
+              <ContactInfoItem>
+                <InfoIcon>
+                  <FaCalendar />
+                </InfoIcon>
+                <InfoContent>
+                  <InfoLabel>Bookings</InfoLabel>
+                  <InfoValue>
+                    <strong>Bookings:</strong><br />
+                    <div style={{ marginLeft: '1rem', marginTop: '0.5rem' }}>
+                      <strong>Sweden:</strong> jelencovich@me.com<br />
+                      <strong>Germany:</strong> anita@be-alive.eu<br />
+                      <a href="https://be-alive.eu" target="_blank" rel="noopener noreferrer" style={{ color: '#ff0000', textDecoration: 'none' }}>be-alive.eu</a>
+                    </div>
+                  </InfoValue>
+                </InfoContent>
+              </ContactInfoItem>
+            </ContactInfoList>
+            
+
+          </ContactInfoSection>
+        </ContactGrid>
+
+        <SocialMediaSection>
+          <SectionTitle
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Follow Us
+          </SectionTitle>
+          <SocialGrid>
+            {socialMedia.map((social, index) => (
+              <SocialCard
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <SocialIcon style={{ color: social.color }}>
+                  {social.icon}
+                </SocialIcon>
+                <SocialName>{social.name}</SocialName>
+                <SocialHandle>{social.handle}</SocialHandle>
+              </SocialCard>
+            ))}
+          </SocialGrid>
+        </SocialMediaSection>
 
 
-    </ContactContainer>
+      </ContactContainer>
+    </>
   );
 };
 

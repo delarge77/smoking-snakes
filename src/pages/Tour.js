@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt, FaClock, FaUsers, FaExternalLinkAlt } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const TourContainer = styled.div`
   min-height: 100vh;
@@ -330,14 +331,19 @@ const Tour = () => {
 
 
   return (
-    <TourContainer>
-      <PageTitle
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Tour Dates
-      </PageTitle>
+    <>
+      <Helmet>
+        <title>Tour | Smoking Snakes - Sleaze Metal from Gothenburg - Sweden</title>
+        <meta name="description" content="See Smoking Snakes live on tour! Check upcoming sleaze metal shows, tour dates, and book tickets for our Gothenburg-based rock band." />
+      </Helmet>
+      <TourContainer>
+              <PageTitle
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+                     Tour Dates
+        </PageTitle>
 
 
 
@@ -427,6 +433,7 @@ const Tour = () => {
 
 
     </TourContainer>
+    </>
   );
 };
 

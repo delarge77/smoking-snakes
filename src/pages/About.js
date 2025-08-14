@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const AboutContainer = styled.div`
   min-height: 100vh;
@@ -244,11 +245,16 @@ const About = () => {
 
 
   return (
-    <AboutContainer>
-      <PageTitle
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+    <>
+      <Helmet>
+        <title>About | Smoking Snakes - Sleaze Metal from Gothenburg - Sweden</title>
+        <meta name="description" content="Meet Smoking Snakes – the Gothenburg sleaze metal band behind 'Danger Zone'. Discover our story, lineup, and rise in the rock scene." />
+      </Helmet>
+      <AboutContainer>
+        <PageTitle
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
               >
           About
         </PageTitle>
@@ -299,6 +305,7 @@ const About = () => {
         </MembersGrid>
       </MembersSection>
     </AboutContainer>
+    </>
   );
 };
 
