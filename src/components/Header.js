@@ -517,7 +517,7 @@ const Header = () => {
             
             <MobileMenuHeader>
               <MobileMenuTitle>Menu</MobileMenuTitle>
-              <MobileMenuSubtitle>Navigate the Smoking Snakes universe</MobileMenuSubtitle>
+              <MobileMenuSubtitle>Scandinavian premium sleaze hair metal</MobileMenuSubtitle>
             </MobileMenuHeader>
             
             <MobileMenuContent>
