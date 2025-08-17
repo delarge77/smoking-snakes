@@ -184,6 +184,7 @@ const MobileMenuButton = styled.button`
   min-height: 44px;
   border-radius: 8px;
   transition: all 0.3s ease;
+  z-index: 1001;
   
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -211,119 +212,241 @@ const MobileMenu = styled(motion.div)`
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.98);
+  height: auto;
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(20, 0, 0, 0.95) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1.5rem;
-  z-index: 1001;
-  padding: 6rem 1rem 2rem 1rem;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  z-index: 99999;
+  padding: 0;
+  overflow: visible;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+`;
+
+const MobileMenuHeader = styled.div`
+  text-align: center;
+  margin: 0;
+  padding: 2rem 1rem 1rem 1rem;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
   
   @media (max-width: 480px) {
-    padding: 5rem 0.75rem 1.5rem 0.75rem;
-    gap: 1rem;
+    padding: 1.5rem 0.75rem 0.75rem 0.75rem;
+  }
+`;
+
+const MobileMenuTitle = styled.h2`
+  color: #ff0000;
+  font-size: 1.5rem;
+  font-family: 'Orbitron', 'Arial Black', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
+  }
+`;
+
+const MobileMenuSubtitle = styled.p`
+  color: #cccccc;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.8;
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+`;
+
+const MobileMenuContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem 1rem;
+  
+  @media (max-width: 480px) {
+    padding: 1rem 0.75rem;
+    gap: 0.4rem;
   }
 `;
 
 const MobileNavLink = styled(Link)`
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  padding: 1rem 2rem;
-  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  min-height: 60px;
+  gap: 0.75rem;
+  min-height: 52px;
   width: 100%;
-  max-width: 300px;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
   
   &:hover {
     color: #ff0000;
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(255, 0, 0, 0.15);
+    border-color: rgba(255, 0, 0, 0.4);
+    transform: translateX(5px);
+    
+    &::before {
+      left: 100%;
+    }
   }
   
   &:active {
     color: #ff0000;
     background: rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
+    transform: translateX(5px) scale(0.98);
   }
   
   @media (max-width: 480px) {
-    font-size: 1.3rem;
-    padding: 0.875rem 1.5rem;
-    min-height: 56px;
-    max-width: 280px;
+    font-size: 1rem;
+    padding: 0.875rem 1.25rem;
+    min-height: 48px;
   }
 `;
 
 const MobilePressKitLink = styled.a`
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  padding: 1rem 2rem;
-  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 0, 0, 0.2);
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  min-height: 60px;
+  gap: 0.75rem;
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0.25), rgba(255, 0, 0, 0.15));
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  min-height: 52px;
   width: 100%;
-  max-width: 300px;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
   
   &:hover {
     color: #ff0000;
-    background: rgba(255, 0, 0, 0.3);
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.35), rgba(255, 0, 0, 0.25));
     border-color: #ff0000;
+    transform: translateX(5px);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    color: #ff0000;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.45), rgba(255, 0, 0, 0.35));
+    border-color: #ff0000;
+    transform: translateX(5px) scale(0.98);
   }
   
   @media (max-width: 480px) {
-    font-size: 1.3rem;
-    padding: 0.875rem 1.5rem;
-    min-height: 56px;
-    max-width: 280px;
+    font-size: 1rem;
+    padding: 0.875rem 1.25rem;
+    min-height: 48px;
   }
+`;
+
+const MobileMenuFooter = styled.div`
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+  }
+`;
+
+const MobileMenuFooterText = styled.p`
+  color: #888888;
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 0.7;
 `;
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: none;
-  border: none;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 0, 0, 0.3);
+  border: 1px solid rgba(255, 0, 0, 0.5);
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 1.2rem;
   cursor: pointer;
   min-width: 44px;
   min-height: 44px;
-  border-radius: 8px;
+  border-radius: 50%;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
   
   &:hover {
     color: #ff0000;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 0, 0, 0.4);
+    border-color: #ff0000;
+    transform: scale(1.1);
+  }
+  
+  &:active {
+    transform: scale(0.95);
   }
   
   @media (max-width: 480px) {
-    top: 1.5rem;
-    right: 1.5rem;
-    font-size: 1.75rem;
-    min-width: 48px;
-    min-height: 48px;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.1rem;
+    min-width: 40px;
+    min-height: 40px;
   }
 `;
 
@@ -391,10 +514,14 @@ const Header = () => {
             <CloseButton onClick={closeMobileMenu}>
               <FaTimes />
             </CloseButton>
-            {console.log('Rendering mobile menu with items:', navItems)}
-            {navItems.map((item) => {
-              console.log('Rendering item:', item);
-              return (
+            
+            <MobileMenuHeader>
+              <MobileMenuTitle>Menu</MobileMenuTitle>
+              <MobileMenuSubtitle>Navigate the Smoking Snakes universe</MobileMenuSubtitle>
+            </MobileMenuHeader>
+            
+            <MobileMenuContent>
+              {navItems.map((item) => (
                 <MobileNavLink
                   key={item.path}
                   to={item.path}
@@ -403,12 +530,16 @@ const Header = () => {
                   {item.icon}
                   {item.label}
                 </MobileNavLink>
-              );
-            })}
-            <MobilePressKitLink href={pressKitUrl} target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
-              <FaFileAlt />
-              Press Kit
-            </MobilePressKitLink>
+              ))}
+              <MobilePressKitLink href={pressKitUrl} target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
+                <FaFileAlt />
+                Press Kit
+              </MobilePressKitLink>
+            </MobileMenuContent>
+            
+            <MobileMenuFooter>
+              <MobileMenuFooterText>© 2025 Smoking Snakes</MobileMenuFooterText>
+            </MobileMenuFooter>
           </MobileMenu>
         )}
       </AnimatePresence>
@@ -417,3 +548,4 @@ const Header = () => {
 };
 
 export default Header;
+
