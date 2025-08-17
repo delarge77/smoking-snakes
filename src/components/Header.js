@@ -517,7 +517,7 @@ const Header = () => {
             
             <MobileMenuHeader>
               <MobileMenuTitle>Menu</MobileMenuTitle>
-              <MobileMenuSubtitle>Scandinavian premium sleaze hair metal</MobileMenuSubtitle>
+              <MobileMenuSubtitle>Scandinavian Premium Sleaze Hair Metal</MobileMenuSubtitle>
             </MobileMenuHeader>
             
             <MobileMenuContent>
