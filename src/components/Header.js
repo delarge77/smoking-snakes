@@ -20,6 +20,10 @@ const HeaderContainer = styled.header`
   @media (max-width: 900px) {
     padding: 1rem;
   }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+  }
 `;
 
 const Nav = styled.nav`
@@ -64,6 +68,12 @@ const LogoImage = styled.img`
     max-width: 1000px;
     margin: -70px 0;
   }
+  
+  @media (max-width: 480px) {
+    height: 240px;
+    max-width: 800px;
+    margin: -60px 0;
+  }
 `;
 
 const NavLinks = styled.div`
@@ -97,6 +107,8 @@ const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
   
   &:hover {
     color: #ff0000;
@@ -131,6 +143,8 @@ const PressKitLink = styled.a`
   gap: 0.5rem;
   background: rgba(255, 0, 0, 0.2);
   border: 1px solid rgba(255, 0, 0, 0.3);
+  min-height: 44px;
+  min-width: 44px;
   
   &:hover {
     color: #ff0000;
@@ -168,11 +182,27 @@ const MobileMenuButton = styled.button`
   padding: 0.5rem;
   min-width: 44px;
   min-height: 44px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  &:active {
+    background: rgba(255, 0, 0, 0.2);
+  }
   
   @media (max-width: 900px) {
     display: flex !important;
     align-items: center;
     justify-content: center;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    min-width: 48px;
+    min-height: 48px;
   }
 `;
 
@@ -194,6 +224,11 @@ const MobileMenu = styled(motion.div)`
   padding: 6rem 1rem 2rem 1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  
+  @media (max-width: 480px) {
+    padding: 5rem 0.75rem 1.5rem 0.75rem;
+    gap: 1rem;
+  }
 `;
 
 const MobileNavLink = styled(Link)`
@@ -222,6 +257,13 @@ const MobileNavLink = styled(Link)`
     color: #ff0000;
     background: rgba(255, 0, 0, 0.2);
   }
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    padding: 0.875rem 1.5rem;
+    min-height: 56px;
+    max-width: 280px;
+  }
 `;
 
 const MobilePressKitLink = styled.a`
@@ -237,11 +279,23 @@ const MobilePressKitLink = styled.a`
   gap: 0.5rem;
   background: rgba(255, 0, 0, 0.2);
   border: 1px solid rgba(255, 0, 0, 0.3);
+  min-height: 60px;
+  width: 100%;
+  max-width: 300px;
+  justify-content: center;
+  text-align: center;
   
   &:hover {
     color: #ff0000;
     background: rgba(255, 0, 0, 0.3);
     border-color: #ff0000;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    padding: 0.875rem 1.5rem;
+    min-height: 56px;
+    max-width: 280px;
   }
 `;
 
@@ -254,9 +308,22 @@ const CloseButton = styled.button`
   color: #ffffff;
   font-size: 2rem;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
   
   &:hover {
     color: #ff0000;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 480px) {
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.75rem;
+    min-width: 48px;
+    min-height: 48px;
   }
 `;
 

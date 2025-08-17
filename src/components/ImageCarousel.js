@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -59,12 +59,17 @@ const CarouselDots = styled.div`
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 12px;
+  gap: 8px;
   z-index: 3;
   
   @media (max-width: 768px) {
     bottom: 15px;
-    gap: 10px;
+    gap: 6px;
+  }
+  
+  @media (max-width: 480px) {
+    bottom: 12px;
+    gap: 5px;
   }
 `;
 
@@ -85,6 +90,8 @@ const CarouselArrow = styled.button`
   justify-content: center;
   transition: all 0.3s ease;
   z-index: 4;
+  min-width: 44px;
+  min-height: 44px;
   
   &:hover {
     background: rgba(255, 0, 0, 0.8);
@@ -97,9 +104,19 @@ const CarouselArrow = styled.button`
   }
   
   @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     font-size: 1.2rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    min-width: 48px;
+    min-height: 48px;
   }
 `;
 
@@ -109,6 +126,10 @@ const CarouselArrowLeft = styled(CarouselArrow)`
   @media (max-width: 768px) {
     left: 10px;
   }
+  
+  @media (max-width: 480px) {
+    left: 8px;
+  }
 `;
 
 const CarouselArrowRight = styled(CarouselArrow)`
@@ -117,18 +138,41 @@ const CarouselArrowRight = styled(CarouselArrow)`
   @media (max-width: 768px) {
     right: 10px;
   }
+  
+  @media (max-width: 480px) {
+    right: 8px;
+  }
 `;
 
 const CarouselDot = styled.div`
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: ${props => props.active ? '#ff0000' : 'rgba(255, 255, 255, 0.5)'};
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 24px;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     background: ${props => props.active ? '#ff0000' : 'rgba(255, 255, 255, 0.8)'};
+  }
+  
+  @media (max-width: 768px) {
+    width: 7px;
+    height: 7px;
+    min-width: 20px;
+    min-height: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 6px;
+    height: 6px;
+    min-width: 18px;
+    min-height: 18px;
   }
 `;
 
@@ -145,6 +189,11 @@ const CarouselContent = styled(motion.div)`
   @media (max-width: 768px) {
     bottom: 60px;
     width: 95%;
+  }
+  
+  @media (max-width: 480px) {
+    bottom: 50px;
+    width: 98%;
   }
 `;
 
@@ -180,6 +229,12 @@ const CarouselButtons = styled(motion.div)`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    gap: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 `;
 
@@ -193,6 +248,8 @@ const CarouselButton = styled(motion.button)`
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
   
   &:hover {
     transform: translateY(-2px);
@@ -202,6 +259,15 @@ const CarouselButton = styled(motion.button)`
   @media (max-width: 768px) {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    min-height: 48px;
+    min-width: 48px;
   }
 `;
 
@@ -209,6 +275,14 @@ const CarouselSocialLinks = styled(motion.div)`
   display: flex;
   justify-content: center;
   gap: 1rem;
+  
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
 `;
 
 const CarouselSocialIcon = styled.a`
@@ -218,19 +292,39 @@ const CarouselSocialIcon = styled.a`
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     color: #ff0000;
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    padding: 0.4rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    padding: 0.375rem;
+    min-width: 48px;
+    min-height: 48px;
+  }
 `;
-
-
 
 const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(5);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const carouselRef = useRef(null);
 
   const images = [
     '/band-photo-1.jpg',
@@ -259,6 +353,30 @@ const ImageCarousel = () => {
     exit: {
       opacity: 0,
       scale: 0.98
+    }
+  };
+
+  // Touch gesture handling
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrevious();
     }
   };
 
@@ -292,7 +410,12 @@ const ImageCarousel = () => {
   };
 
   return (
-    <CarouselContainer>
+    <CarouselContainer 
+      ref={carouselRef}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <AnimatePresence mode="popLayout">
         <CarouselSlide
           key={currentIndex}
@@ -313,11 +436,11 @@ const ImageCarousel = () => {
       
       <CarouselOverlay />
       
-      <CarouselArrowLeft onClick={handlePrevious}>
+      <CarouselArrowLeft onClick={handlePrevious} aria-label="Previous image">
         <FaChevronLeft />
       </CarouselArrowLeft>
       
-      <CarouselArrowRight onClick={handleNext}>
+      <CarouselArrowRight onClick={handleNext} aria-label="Next image">
         <FaChevronRight />
       </CarouselArrowRight>
       
@@ -330,32 +453,30 @@ const ImageCarousel = () => {
           Scandinavian Premium Sleaze Hair Metal
         </CarouselSubtitle>
         
-
-        
         <CarouselSocialLinks
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <CarouselSocialIcon href="https://facebook.com/smokingsnakesofsweden" target="_blank">
+          <CarouselSocialIcon href="https://facebook.com/smokingsnakesofsweden" target="_blank" aria-label="Facebook">
             <FaFacebook />
           </CarouselSocialIcon>
-          <CarouselSocialIcon href="https://open.spotify.com/artist/4QanEE5Wrkq1JhWMpWKz4f?si=tYmQ49OiQT-KxGhyFoTEmA" target="_blank">
+          <CarouselSocialIcon href="https://open.spotify.com/artist/4QanEE5Wrkq1JhWMpWKz4f?si=tYmQ49OiQT-KxGhyFoTEmA" target="_blank" aria-label="Spotify">
             <FaSpotify />
           </CarouselSocialIcon>
-          <CarouselSocialIcon href="https://music.apple.com/us/artist/smoking-snakes/1618982403" target="_blank">
+          <CarouselSocialIcon href="https://music.apple.com/us/artist/smoking-snakes/1618982403" target="_blank" aria-label="Apple Music">
             <FaApple />
           </CarouselSocialIcon>
-          <CarouselSocialIcon href="https://youtube.com/@smokingsnakesofsweden" target="_blank">
+          <CarouselSocialIcon href="https://youtube.com/@smokingsnakesofsweden" target="_blank" aria-label="YouTube">
             <FaYoutube />
           </CarouselSocialIcon>
-          <CarouselSocialIcon href="https://instagram.com/smokingsnakesofsweden" target="_blank">
+          <CarouselSocialIcon href="https://instagram.com/smokingsnakesofsweden" target="_blank" aria-label="Instagram">
             <FaInstagram />
           </CarouselSocialIcon>
-          <CarouselSocialIcon href="https://tiktok.com/@smokingsnakesofsweden" target="_blank">
+          <CarouselSocialIcon href="https://tiktok.com/@smokingsnakesofsweden" target="_blank" aria-label="TikTok">
             <FaTiktok />
           </CarouselSocialIcon>
-          <CarouselSocialIcon href="https://www.patreon.com/SmokingSnakes" target="_blank">
+          <CarouselSocialIcon href="https://www.patreon.com/SmokingSnakes" target="_blank" aria-label="Patreon">
             <FaPatreon />
           </CarouselSocialIcon>
         </CarouselSocialLinks>
@@ -367,6 +488,7 @@ const ImageCarousel = () => {
             key={index}
             active={index === currentIndex}
             onClick={() => handleDotClick(index)}
+            aria-label={`Go to image ${index + 1}`}
           />
         ))}
       </CarouselDots>

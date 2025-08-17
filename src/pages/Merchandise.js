@@ -31,6 +31,14 @@ const MerchandiseContainer = styled.div`
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 const PageTitle = styled(motion.h1)`
@@ -46,6 +54,14 @@ const PageTitle = styled(motion.h1)`
   
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
   }
 `;
 
@@ -56,12 +72,32 @@ const HeroSection = styled.section`
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 2rem;
+    padding: 1.5rem 1rem;
+  }
 `;
 
 const HeroTitle = styled.h2`
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #ffffff;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 0.875rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const HeroDescription = styled.p`
@@ -70,6 +106,16 @@ const HeroDescription = styled.p`
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
 `;
 
 const MerchandiseGrid = styled.div`
@@ -77,6 +123,18 @@ const MerchandiseGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const MerchandiseCard = styled(motion.div)`
@@ -108,6 +166,14 @@ const MerchandiseCard = styled(motion.div)`
   
   &:hover::before {
     transform: scaleX(1);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.25rem;
   }
 `;
 

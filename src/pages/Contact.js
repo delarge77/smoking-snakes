@@ -10,6 +10,14 @@ const ContactContainer = styled.div`
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 const PageTitle = styled(motion.h1)`
@@ -25,6 +33,14 @@ const PageTitle = styled(motion.h1)`
   
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
   }
 `;
 
@@ -37,6 +53,12 @@ const ContactGrid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -45,6 +67,14 @@ const ContactFormSection = styled.section`
   border-radius: 16px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.25rem;
+  }
 `;
 
 const FormTitle = styled.h2`
@@ -57,24 +87,60 @@ const FormTitle = styled.h2`
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: 1px;
+  }
 `;
 
 const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  
+  @media (max-width: 768px) {
+    gap: 1.25rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
 `;
 
 const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  
+  @media (max-width: 768px) {
+    gap: 0.4rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.375rem;
+  }
 `;
 
 const FormLabel = styled.label`
   color: #ffffff;
   font-weight: 500;
   font-size: 1rem;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const FormInput = styled.input`
@@ -85,6 +151,8 @@ const FormInput = styled.input`
   color: #ffffff;
   font-size: 1rem;
   transition: all 0.3s ease;
+  min-height: 44px;
+  width: 100%;
   
   &::placeholder {
     color: #cccccc;
@@ -94,6 +162,18 @@ const FormInput = styled.input`
     outline: none;
     border-color: #ff0000;
     box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+    min-height: 44px;
   }
 `;
 
@@ -107,6 +187,7 @@ const FormTextarea = styled.textarea`
   min-height: 120px;
   resize: vertical;
   transition: all 0.3s ease;
+  width: 100%;
   
   &::placeholder {
     color: #cccccc;
@@ -116,6 +197,18 @@ const FormTextarea = styled.textarea`
     outline: none;
     border-color: #ff0000;
     box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 100px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+    min-height: 90px;
   }
 `;
 
@@ -133,6 +226,9 @@ const SubmitButton = styled(motion.button)`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  width: 100%;
   
   &:hover {
     transform: translateY(-2px);
@@ -145,6 +241,20 @@ const SubmitButton = styled(motion.button)`
     transform: none;
     box-shadow: none;
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    min-height: 48px;
+    min-width: 48px;
+  }
 `;
 
 const ContactInfoSection = styled.section`
@@ -152,6 +262,14 @@ const ContactInfoSection = styled.section`
   border-radius: 16px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.25rem;
+  }
 `;
 
 const InfoTitle = styled.h2`
@@ -164,6 +282,18 @@ const InfoTitle = styled.h2`
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: 1px;
+  }
 `;
 
 const ContactInfoList = styled.div`
@@ -171,11 +301,21 @@ const ContactInfoList = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const ContactInfoItem = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.05);
@@ -185,6 +325,14 @@ const ContactInfoItem = styled.div`
   &:hover {
     background: rgba(255, 0, 0, 0.1);
     transform: translateX(5px);
+  }
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1rem 0.75rem;
   }
 `;
 
@@ -199,10 +347,21 @@ const InfoIcon = styled.div`
   color: #ffffff;
   font-size: 1.2rem;
   flex-shrink: 0;
+  
+  @media (max-width: 480px) {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
 `;
 
 const InfoContent = styled.div`
   flex: 1;
+  
+  @media (max-width: 480px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 const InfoLabel = styled.div`
@@ -210,15 +369,33 @@ const InfoLabel = styled.div`
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
 `;
 
 const InfoValue = styled.div`
   color: #ffffff;
   font-size: 1rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
 `;
 
 const SocialMediaSection = styled.section`
   margin-bottom: 4rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
@@ -231,12 +408,34 @@ const SectionTitle = styled(motion.h2)`
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: 1px;
+  }
 `;
 
 const SocialGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 `;
 
 const SocialCard = styled(motion.a)`

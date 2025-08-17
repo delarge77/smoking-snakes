@@ -12,6 +12,14 @@ const FooterContainer = styled.footer`
   padding: 3rem 2rem 2rem;
   position: relative;
   z-index: 1000;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem 1rem;
+  }
 `;
 
 const FooterContent = styled.div`
@@ -29,6 +37,12 @@ const FooterTop = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -42,6 +56,16 @@ const FooterTitle = styled.h3`
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin-bottom: 0.875rem;
+  }
 `;
 
 
@@ -49,6 +73,10 @@ const FooterTitle = styled.h3`
 const SocialLinks = styled.div`
   display: flex;
   gap: 1rem;
+  
+  @media (max-width: 480px) {
+    gap: 0.75rem;
+  }
 `;
 
 const SocialIcon = styled.a`
@@ -62,11 +90,20 @@ const SocialIcon = styled.a`
   color: #ffffff;
   text-decoration: none;
   transition: all 0.3s ease;
+  min-width: 44px;
+  min-height: 44px;
   
   &:hover {
     background: #ff0000;
     color: #ffffff;
     transform: translateY(-2px);
+  }
+  
+  @media (max-width: 480px) {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
 `;
 
@@ -74,16 +111,29 @@ const FooterLinks = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  
+  @media (max-width: 480px) {
+    gap: 0.6rem;
+  }
 `;
 
 const FooterLink = styled(Link)`
   color: #cccccc;
   text-decoration: none;
   transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   
   &:hover {
     color: #ff0000;
     transform: translateX(5px);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.375rem 0;
+    min-height: 44px;
   }
 `;
 
@@ -92,6 +142,14 @@ const FooterLink = styled(Link)`
 const NewsletterSection = styled.div`
   text-align: center;
   margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const NewsletterTitle = styled.h4`
@@ -103,6 +161,17 @@ const NewsletterTitle = styled.h4`
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.875rem;
+  }
 `;
 
 const NewsletterForm = styled.form`
@@ -113,6 +182,12 @@ const NewsletterForm = styled.form`
   
   @media (max-width: 768px) {
     flex-direction: column;
+    max-width: 350px;
+  }
+  
+  @media (max-width: 480px) {
+    max-width: 300px;
+    gap: 0.75rem;
   }
 `;
 
@@ -124,6 +199,7 @@ const NewsletterInput = styled.input`
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   font-size: 1rem;
+  min-height: 44px;
   
   &::placeholder {
     color: #cccccc;
@@ -132,6 +208,12 @@ const NewsletterInput = styled.input`
   &:focus {
     outline: none;
     border-color: #64ffda;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
+    min-height: 44px;
   }
 `;
 
@@ -145,6 +227,8 @@ const NewsletterButton = styled.button`
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
   
   &:hover:not(:disabled) {
     transform: translateY(-2px);
@@ -154,6 +238,13 @@ const NewsletterButton = styled.button`
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+    min-width: 44px;
   }
 `;
 
@@ -176,17 +267,40 @@ const NewsletterMessage = styled.div`
       border: 1px solid rgba(255, 0, 0, 0.3);
     `
   }
+  
+  @media (max-width: 480px) {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
 `;
 
 const FooterBottom = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 2rem;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    padding-top: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding-top: 1rem;
+  }
 `;
 
 const Copyright = styled.p`
   color: #cccccc;
   margin-bottom: 1rem;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const MadeWithLove = styled.p`
@@ -196,6 +310,11 @@ const MadeWithLove = styled.p`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    gap: 0.375rem;
+  }
 `;
 
 const Footer = () => {

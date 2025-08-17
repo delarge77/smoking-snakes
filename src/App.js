@@ -40,12 +40,29 @@ const AppContainer = styled.div`
     background: rgba(0, 0, 0, 0.6);
     z-index: 1;
   }
+  
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+  }
+  
+  @media (max-width: 480px) {
+    background-size: cover;
+    background-position: center center;
+  }
 `;
 
 const MainContent = styled(motion.main)`
   min-height: calc(100vh - 140px);
   position: relative;
   z-index: 2;
+  
+  @media (max-width: 768px) {
+    min-height: calc(50vh - 60px);
+  }
+  
+  @media (max-width: 480px) {
+    min-height: calc(40vh - 50px);
+  }
 `;
 
 // Component that handles scrolling to top (must be inside Router context)

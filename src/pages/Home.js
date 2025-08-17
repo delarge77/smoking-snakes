@@ -8,18 +8,34 @@ import ImageCarousel from '../components/ImageCarousel';
 
 const HomeContainer = styled.div`
   min-height: 100vh;
+  
+  @media (max-width: 768px) {
+    min-height: 50vh;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 40vh;
+  }
 `;
 
 
 
 const HeroSection = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    min-height: 50vh;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 40vh;
+  }
 `;
 
 const HeroContent = styled(motion.div)`
@@ -111,9 +127,17 @@ const SocialIcon = styled.a`
 `;
 
 const FeaturedSection = styled.section`
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.25rem 1rem;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
@@ -126,6 +150,18 @@ const SectionTitle = styled(motion.h2)`
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1.5px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 1px;
+  }
 `;
 
 const FeaturedGrid = styled.div`
@@ -133,6 +169,18 @@ const FeaturedGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const FeaturedCard = styled(motion.div)`
@@ -148,23 +196,61 @@ const FeaturedCard = styled(motion.div)`
     border-color: #ff0000;
     box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
   }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.25rem;
+  }
 `;
 
 const CardIcon = styled.div`
   font-size: 3rem;
   color: #ff0000;
   margin-bottom: 1rem;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 0.875rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const CardTitle = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #ffffff;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 0.875rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const CardDescription = styled.p`
   color: #cccccc;
   line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
 `;
 
 const CardLink = styled.a`
@@ -174,17 +260,36 @@ const CardLink = styled.a`
   margin-top: 1rem;
   display: inline-block;
   transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     color: #cc0000;
     transform: translateX(5px);
   }
+  
+  @media (max-width: 480px) {
+    margin-top: 0.875rem;
+    padding: 0.375rem 0;
+    min-height: 44px;
+  }
 `;
 
 const LatestRelease = styled.section`
-  padding: 5rem 2rem;
+  padding: 0 2rem;
   background: rgba(255, 255, 255, 0.02);
   text-align: center;
+  
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 1rem;
+  }
 `;
 
 const AlbumCover = styled(motion.div)`
@@ -209,6 +314,14 @@ const AlbumCover = styled(motion.div)`
     width: 250px;
     height: 250px;
     font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 220px;
+    height: 220px;
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
   }
 `;
 
@@ -216,6 +329,16 @@ const AlbumTitle = styled.h3`
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #ffffff;
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+    margin-bottom: 0.875rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const AlbumDescription = styled.p`
@@ -224,6 +347,16 @@ const AlbumDescription = styled.p`
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+  }
 `;
 
 const StreamingButtons = styled.div`
@@ -231,6 +364,16 @@ const StreamingButtons = styled.div`
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const StreamingButton = styled.a`
@@ -243,17 +386,42 @@ const StreamingButton = styled.a`
   padding: 0.8rem 1.5rem;
   border-radius: 25px;
   transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
   
   &:hover {
     background: rgba(255, 0, 0, 0.2);
     color: #ff0000;
     transform: translateY(-2px);
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.75rem 1.25rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.7rem 1.1rem;
+    min-height: 48px;
+    min-width: 48px;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
 `;
 
 const BuyAlbumSection = styled.div`
   text-align: center;
   margin: 3rem 0;
+  
+  @media (max-width: 768px) {
+    margin: 2rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    margin: 1.5rem 0;
+  }
 `;
 
 const BuyAlbumButton = styled.a`
@@ -272,11 +440,30 @@ const BuyAlbumButton = styled.a`
   letter-spacing: 1px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+  min-height: 44px;
+  min-width: 44px;
   
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
     background: linear-gradient(45deg, #cc0000, #ff0000);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1rem 1.75rem;
+    font-size: 1.1rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+    min-width: 48px;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
   }
 `;
 
@@ -286,6 +473,11 @@ const FrontiersLogo = styled.img`
   display: block;
   max-width: 120px;
   object-fit: contain;
+  
+  @media (max-width: 480px) {
+    height: 35px;
+    max-width: 100px;
+  }
 `;
 
 const AwardsSection = styled.div`
@@ -295,6 +487,16 @@ const AwardsSection = styled.div`
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+  }
 `;
 
 const AwardsText = styled.p`
@@ -311,7 +513,7 @@ const AwardsText = styled.p`
 `;
 
 const SpotifyPlayer = styled.section`
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -319,8 +521,13 @@ const SpotifyPlayer = styled.section`
   text-align: center;
   
   @media (max-width: 768px) {
-    padding: 2rem 1rem;
-    margin: 0.5rem 1rem;
+    padding: 1rem 1rem;
+    margin: 0.25rem 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0.75rem;
   }
 `;
 
@@ -358,13 +565,6 @@ const Home = () => {
       <HomeContainer>
         <HeroSection>
           <ImageCarousel />
-          <HeroContent
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-
-          </HeroContent>
         </HeroSection>
 
         <LatestRelease>
