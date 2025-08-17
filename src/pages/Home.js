@@ -279,7 +279,7 @@ const CardLink = styled.a`
 `;
 
 const LatestRelease = styled.section`
-  padding: 0 2rem;
+  padding: 3rem 2rem;
   background: rgba(255, 255, 255, 0.02);
   text-align: center;
   
