@@ -23,6 +23,12 @@ const PageTitle = styled.h1`
   
   @media (max-width: 768px) {
     font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -144,8 +150,8 @@ const StatItem = styled.div`
 
 const ChannelSection = styled.div`
   text-align: center;
-  margin-top: 4rem;
-  padding: 3rem;
+  margin-top: 3rem;
+  padding: 2rem;
   background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
   border-radius: 15px;
   border: 1px solid rgba(255, 0, 0, 0.2);
@@ -169,6 +175,28 @@ const ChannelButton = styled.a`
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
   }
+`;
+
+const VideoHeroSection = styled.div`
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-bottom: 3rem;
+  border-radius: 0;
+  overflow: hidden;
+  border: none;
+  box-shadow: none;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+`;
+
+const HeroVideo = styled.video`
+  width: 100vw;
+  height: auto;
+  display: block;
+  background: #000000;
+  object-fit: cover;
 `;
 
 const Videos = () => {
@@ -214,7 +242,18 @@ const Videos = () => {
       <VideosContainer>
         <PageTitle>Videos</PageTitle>
 
-
+        <VideoHeroSection>
+          <HeroVideo 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            controls={false}
+          >
+            <source src="/sitevideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </HeroVideo>
+        </VideoHeroSection>
 
         <VideosGrid>
           {videos.map((video) => (
