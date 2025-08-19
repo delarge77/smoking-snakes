@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaMusic, FaHome, FaCalendarAlt, FaInfoCircle, FaEnvelope, FaVideo, FaTshirt, FaFileAlt } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaCalendarAlt, FaInfoCircle, FaEnvelope, FaVideo, FaTshirt, FaFileAlt } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
   background: rgba(0, 0, 0, 0.95);
