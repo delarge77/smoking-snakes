@@ -278,16 +278,6 @@ const Tour = () => {
   const upcomingTours = [
           {
         id: 1,
-        date: "September 06, 2025",
-        title: "Fortress of Rock 2025",
-        location: "Bohus Fästning, Kungälv",
-        time: "5:00 PM",
-        ticketPrice: "350 kr",
-        available: true,
-        ticketUrl: "https://app.easyarr.se/arrangemang/FortressofRock2025-live-981.html?fbclid=IwY2xjawMG-f9leHRuA2FlbQIxMQABHnd1gZ8n7maFoinzYUWAWozrJ3dnfURFdrBVownNLBIl-odk-lilHeOabaom_aem_k4Msy9wWpoJG5LChb72HsA"
-      },
-          {
-        id: 2,
         date: "September 27, 2025",
         title: "Café 1851 (Fd Folk å Rock)",
         location: "Club Bonksy,  Malmö",
@@ -297,7 +287,7 @@ const Tour = () => {
         ticketUrl: "https://secure.tickster.com/sv/wm92z288nw841k0/products?fbclid=IwY2xjawMG-T5leHRuA2FlbQIxMABicmlkETBxcnZIV0dLUHpnZHQyd0JjAR7EQxXvnrb48MN4bM-XtGodAfzUBrtP5z8-EUSpTtUjMJUGmlMM3jKnvJyyXw_aem_zlsG7KO_s8l-pwFqkxidEw"
       },
           {
-        id: 3,
+        id: 2,
         date: "October 29, 2025",
         title: "Shakedown suzies + Smoking Snakes + LA Cobra + Firebombs",
         location: "Sofiehof Underjord, Jönköping",
@@ -307,7 +297,7 @@ const Tour = () => {
         ticketUrl: "https://secure.tickster.com/sv/bwk0d6w1382amg4/products?fbclid=IwY2xjawMG-aFleHRuA2FlbQIxMABicmlkETBxcnZIV0dLUHpnZHQyd0JjAR7EQxXvnrb48MN4bM-XtGodAfzUBrtP5z8-EUSpTtUjMJUGmlMM3jKnvJyyXw_aem_zlsG7KO_s8l-pwFqkxidEw"
       },
           {
-        id: 4,
+        id: 3,
         date: "October 30, 2025",
         title: "L.A. COBRA + SMOKING SNAKES",
         location: "ENCORE, Sundbyberg",
@@ -319,13 +309,14 @@ const Tour = () => {
   ];
 
   const pastTours = [
-    { date: "Feb 1, 2025", title: "Belsepub: Sleaze & Hardrock Night", location: "Gothenburg", status: "Completed" },
-    { date: "May 10, 2025", title: "Qvänum Live", location: "Qvänum", status: "Completed" },
-    { date: "May 16, 2025", title: "MAYHEM ROCK FESTIVAL 2025", location: "229 - London", status: "Completed" },
-    { date: "May 17, 2025", title: "MAYHEM ROCK FESTIVAL 2025", location: "SaltBox Nottingham", status: "Completed" },
-    { date: "May 18, 2025", title: "MAYHEM ROCK FESTIVAL 2025", location: "Venue 23 Wakefield", status: "Completed" },
+    { date: "Sep 6, 2025", title: "Fortress of Rock 2025", location: "Bohus Fästning, Kungälv", status: "Completed" },
+    { date: "Jul 26, 2025", title: "Eden Rock Festival", location: "Uppsala", status: "Completed" },
     { date: "Jun 14, 2025", title: "Belsepub: Metal-Rock Night", location: "Gothenburg", status: "Completed" },
-    { date: "Jul 26, 2025", title: "Eden Rock Festival", location: "Uppsala", status: "Completed" }
+    { date: "May 18, 2025", title: "MAYHEM ROCK FESTIVAL 2025", location: "Venue 23 Wakefield", status: "Completed" },
+    { date: "May 17, 2025", title: "MAYHEM ROCK FESTIVAL 2025", location: "SaltBox Nottingham", status: "Completed" },
+    { date: "May 16, 2025", title: "MAYHEM ROCK FESTIVAL 2025", location: "229 - London", status: "Completed" },
+    { date: "May 10, 2025", title: "Qvänum Live", location: "Qvänum", status: "Completed" },
+    { date: "Feb 1, 2025", title: "Belsepub: Sleaze & Hardrock Night", location: "Gothenburg", status: "Completed" }
   ];
 
 
