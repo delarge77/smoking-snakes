@@ -38,7 +38,7 @@ const TourGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 0;
   justify-items: center;
   
   @media (max-width: 768px) {
@@ -187,7 +187,7 @@ const SoldOutBadge = styled.span`
 `;
 
 const PastToursSection = styled.section`
-  margin-top: 4rem;
+  margin-top: -20rem;
 `;
 
 const SectionTitle = styled(motion.h2)`
@@ -205,7 +205,7 @@ const SectionTitle = styled(motion.h2)`
 const PastTourList = styled.div`
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 0 2rem 1rem 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
@@ -278,16 +278,6 @@ const Tour = () => {
   const upcomingTours = [
           {
         id: 1,
-        date: "September 27, 2025",
-        title: "Café 1851 (Fd Folk å Rock)",
-        location: "Club Bonksy,  Malmö",
-        time: "8:00 PM",
-        ticketPrice: "250 kr",
-        available: true,
-        ticketUrl: "https://secure.tickster.com/sv/wm92z288nw841k0/products?fbclid=IwY2xjawMG-T5leHRuA2FlbQIxMABicmlkETBxcnZIV0dLUHpnZHQyd0JjAR7EQxXvnrb48MN4bM-XtGodAfzUBrtP5z8-EUSpTtUjMJUGmlMM3jKnvJyyXw_aem_zlsG7KO_s8l-pwFqkxidEw"
-      },
-          {
-        id: 2,
         date: "October 29, 2025",
         title: "Shakedown suzies + Smoking Snakes + LA Cobra + Firebombs",
         location: "Sofiehof Underjord, Jönköping",
@@ -297,7 +287,7 @@ const Tour = () => {
         ticketUrl: "https://secure.tickster.com/sv/bwk0d6w1382amg4/products?fbclid=IwY2xjawMG-aFleHRuA2FlbQIxMABicmlkETBxcnZIV0dLUHpnZHQyd0JjAR7EQxXvnrb48MN4bM-XtGodAfzUBrtP5z8-EUSpTtUjMJUGmlMM3jKnvJyyXw_aem_zlsG7KO_s8l-pwFqkxidEw"
       },
           {
-        id: 3,
+        id: 2,
         date: "October 30, 2025",
         title: "L.A. COBRA + SMOKING SNAKES",
         location: "ENCORE, Sundbyberg",
