@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaHome, FaCalendarAlt, FaInfoCircle, FaEnvelope, FaVideo, FaTshirt, FaFileAlt } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaCalendarAlt, FaInfoCircle, FaEnvelope, FaVideo, FaTshirt, FaFileAlt, FaMusic } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
   background: rgba(0, 0, 0, 0.95);
@@ -458,6 +458,7 @@ const Header = () => {
     { path: '/', label: 'Home', icon: <FaHome /> },
     { path: '/videos', label: 'Videos', icon: <FaVideo /> },
     { path: '/merchandise', label: 'Merchandise', icon: <FaTshirt /> },
+    { path: '/discography', label: 'Discography', icon: <FaMusic /> },
     { path: '/tour', label: 'Tour', icon: <FaCalendarAlt /> },
     { path: '/about', label: 'About', icon: <FaInfoCircle /> },
     { path: '/contact', label: 'Contact', icon: <FaEnvelope /> },
@@ -483,14 +484,16 @@ const Header = () => {
         
         <NavLinks>
           {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              active={location.pathname === item.path}
-            >
-              {item.icon}
-              {item.label}
-            </NavLink>
+            location.pathname !== item.path && (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                active={location.pathname === item.path}
+              >
+                {item.icon}
+                {item.label}
+              </NavLink>
+            )
           ))}
           <PressKitLink href={pressKitUrl} target="_blank" rel="noopener noreferrer">
             <FaFileAlt />

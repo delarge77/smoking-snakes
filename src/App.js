@@ -14,6 +14,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Merchandise from './pages/Merchandise';
 import Videos from './pages/Videos';
+import Discography from './pages/Discography';
 
 // Hooks
 import useScrollToTop from './hooks/useScrollToTop';
@@ -86,6 +87,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/videos" element={<Videos />} />
               <Route path="/merchandise" element={<Merchandise />} />
+              <Route path="/discography" element={<Discography />} />
               <Route path="/tour" element={<Tour />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />

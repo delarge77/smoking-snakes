@@ -662,7 +662,9 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <CardIcon>🏆</CardIcon>
+              <CardIcon>
+                <img src="/metal-temple.svg" alt="Metal Temple" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </CardIcon>
               <CardTitle>Metal Temple - 10/10 Masterpiece</CardTitle>
               <CardDescription>
                 "Danger Zone" receives a perfect score! Metal Temple praises our high-energy sleaze metal sound, 
@@ -678,7 +680,9 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <CardIcon>📰</CardIcon>
+              <CardIcon>
+                <img src="/meta-forces.jpeg" alt="Metal Forces Magazine" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </CardIcon>
               <CardTitle>Metal Forces Magazine - 8/10</CardTitle>
               <CardDescription>
                 "Strong debut full-length of driving heavy rock" with "swaggering metal that attracts the girls, 
@@ -694,7 +698,9 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <CardIcon>🦘</CardIcon>
+              <CardIcon>
+                <img src="/metal-roos.png" alt="Metal-Roos" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </CardIcon>
               <CardTitle>Metal-Roos - Album of the Year Contender</CardTitle>
               <CardDescription>
                 "A breathtaking debut" with "Album Of The Year aura" that "knocks listeners into the next fucking week...and beyond!" 
