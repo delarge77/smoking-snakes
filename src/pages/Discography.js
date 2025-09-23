@@ -132,6 +132,97 @@ const AlbumCover = styled.div`
   }
 `;
 
+const DangerZoneCover = styled.div`
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #000, #333);
+  border-radius: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-top: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('${props => props.coverImage}') center/cover;
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 768px) {
+    width: 240px;
+    height: 240px;
+    border-radius: 12px;
+    margin: 0 auto 1.5rem auto;
+    margin-top: 0;
+  }
+`;
+
+const AlbumCovers = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -2rem;
+  
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    margin-top: -1rem;
+  }
+`;
+
+const DangerZoneAlbumCovers = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -22rem;
+  
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    margin-top: -14rem;
+  }
+`;
+
+const AlbumBackCover = styled.div`
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #000, #333);
+  border-radius: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('${props => props.backCoverImage}') center/cover;
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 768px) {
+    width: 240px;
+    height: 240px;
+    border-radius: 12px;
+  }
+`;
+
 const AlbumContent = styled.div`
   flex: 1;
   padding: 3rem;
@@ -368,7 +459,7 @@ const FeaturedGrid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
   }
   
   @media (max-width: 480px) {
@@ -483,6 +574,7 @@ const Discography = () => {
       trackCount: 3,
       duration: "10:22",
       coverImage: "/Smoking-Snakes-album-cover-e1694888679277.webp",
+      backCoverImage: "/album-back.JPG",
       releaseDate: "February 27, 2023",
       description: "Restless & Wild is a debut, self-released EP by the Swedish sleaze metal band Smoking Snakes, released in early 2023. The three-song EP features tracks like 'Excited,' 'There Is No Tomorrow,' and 'Run For Your Life'. The EP was later followed by their official full-length debut album, 'Danger Zone,' which was released in February 2024 after the band signed with Frontiers Music.",
       trackList: [
@@ -499,6 +591,7 @@ const Discography = () => {
       trackCount: 12,
       duration: "38:37",
       coverImage: "/danger-zone-album-cover.jpg",
+      backCoverImage: "/dangerzone-back.png",
       releaseDate: "February 2024",
       description: "Official full-length debut album released after signing with Frontiers Music.",
       trackList: [
@@ -541,9 +634,29 @@ const Discography = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               >
+                {album.id === 1 ? (
+                  <AlbumCovers>
+                    <AlbumCover coverImage={album.coverImage}>
+                      <FaMusic size={48} color="#ff0000" />
+                    </AlbumCover>
+                    <AlbumBackCover backCoverImage={album.backCoverImage}>
+                      <FaMusic size={48} color="#ff0000" />
+                    </AlbumBackCover>
+                  </AlbumCovers>
+                ) : album.id === 2 ? (
+                  <DangerZoneAlbumCovers>
+                    <DangerZoneCover coverImage={album.coverImage}>
+                      <FaMusic size={48} color="#ff0000" />
+                    </DangerZoneCover>
+                    <AlbumBackCover backCoverImage={album.backCoverImage}>
+                      <FaMusic size={48} color="#ff0000" />
+                    </AlbumBackCover>
+                  </DangerZoneAlbumCovers>
+                ) : (
                 <AlbumCover coverImage={album.coverImage}>
                   <FaMusic size={48} color="#ff0000" />
                 </AlbumCover>
+                )}
                 
                 <AlbumContent>
                   <AlbumTitle>{album.title}</AlbumTitle>
@@ -593,11 +706,11 @@ const Discography = () => {
                   
                   <FeaturedGrid>
                     <FeaturedCard
-                      initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.1 }}
-                      viewport={{ once: true }}
-                    >
+                    viewport={{ once: true }}
+                  >
                       <CardIcon>
                         <img src="/sleaze-roxx-logo.png" alt="Sleaze Roxx" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </CardIcon>
@@ -611,11 +724,11 @@ const Discography = () => {
                     </FeaturedCard>
                     
                     <FeaturedCard
-                      initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
-                      viewport={{ once: true }}
-                    >
+                    viewport={{ once: true }}
+                  >
                       <CardIcon>
                         <img src="/rockbloggen.webp" alt="Rockbloggen" style={{ width: '60%', height: '60%', objectFit: 'contain' }} />
                       </CardIcon>
@@ -629,11 +742,11 @@ const Discography = () => {
                     </FeaturedCard>
                     
                     <FeaturedCard
-                      initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.3 }}
-                      viewport={{ once: true }}
-                    >
+                    viewport={{ once: true }}
+                  >
                       <CardIcon>
                         <img src="/CGCM.jpg" alt="CGCM Rock Radio" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </CardIcon>
@@ -663,11 +776,11 @@ const Discography = () => {
                   
                   <FeaturedGrid>
                     <FeaturedCard
-                      initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.1 }}
-                      viewport={{ once: true }}
-                    >
+                    viewport={{ once: true }}
+                  >
                       <CardIcon>
                         <img src="/metal-temple.svg" alt="Metal Temple" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </CardIcon>
@@ -682,11 +795,11 @@ const Discography = () => {
                     </FeaturedCard>
                     
                     <FeaturedCard
-                      initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
-                      viewport={{ once: true }}
-                    >
+                    viewport={{ once: true }}
+                  >
                       <CardIcon>
                         <img src="/meta-forces.jpeg" alt="Metal Forces Magazine" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </CardIcon>
@@ -701,11 +814,11 @@ const Discography = () => {
                     </FeaturedCard>
                     
                     <FeaturedCard
-                      initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.3 }}
-                      viewport={{ once: true }}
-                    >
+                    viewport={{ once: true }}
+                  >
                       <CardIcon>
                         <img src="/metal-roos.png" alt="Metal-Roos" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </CardIcon>
