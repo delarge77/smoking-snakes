@@ -648,17 +648,6 @@ const Contact = () => {
                   <InfoValue>smokingsnakesofsweden@gmail.com</InfoValue>
                 </InfoContent>
               </ContactInfoItem>
-              
-              <ContactInfoItem>
-                <InfoIcon>
-                  <FaMapMarkerAlt />
-                </InfoIcon>
-                <InfoContent>
-                  <InfoLabel>Management</InfoLabel>
-                  <InfoValue>Tripple Moose Management<br />tripplemoosemanagement@gmail.com</InfoValue>
-                </InfoContent>
-              </ContactInfoItem>
-              
               <ContactInfoItem>
                 <InfoIcon>
                   <FaCalendar />

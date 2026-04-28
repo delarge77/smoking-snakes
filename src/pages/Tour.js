@@ -295,6 +295,17 @@ const allTours = [
   },
   {
     id: 4,
+    date: "May 3, 2026",
+    title: "Frontiers Rock festival",
+    location: "Live Music Club - Trezzo sull'Adda (MI) - Italy",
+    time: "2:45 PM",
+    ticketPrice: "€258.75",
+    available: true,
+    ticketUrl: "https://shop.ticketmaster.it/tickets/frontiers-rock-festival-abbonamento-3-giorni-01-may-2026-live-club-trezzo-sull-adda-15301.html",
+    backgroundImage: "https://www.frontiersrockfestival.com/images/Frontiers_Rock_Festival_VIII_2026_final.jpg"
+  },
+  {
+    id: 5,
     date: "May 8, 2026",
     title: "Lock Up Your Daughters Tour - SMOKING SNAKES & SUICIDE BOMBERS",
     location: "MTC Köln, Cologne, Germany",
@@ -305,7 +316,7 @@ const allTours = [
     backgroundImage: "https://cdn.reservix.com/core/img/event/detailEvent_2487908.jpg"
   },
   {
-    id: 5,
+    id: 6,
     date: "May 9, 2026",
     title: "Lock Up Your Daughters Tour - SMOKING SNAKES & SUICIDE BOMBERS + CRAZY69",
     location: "DVG Club, Kortrijk, Belgium",
@@ -316,7 +327,7 @@ const allTours = [
     backgroundImage: "https://cdn.reservix.com/core/img/event/detailEvent_2487908.jpg"
   },
   {
-    id: 6,
+    id: 7,
     date: "May 12, 2026",
     title: "Lock Up Your Daughters Tour - SMOKING SNAKES & SUICIDE BOMBERS",
     location: "Privatclub Berlin, Berlin, Germany",
@@ -327,7 +338,7 @@ const allTours = [
     backgroundImage: "https://cdn.reservix.com/core/img/event/detailEvent_2487908.jpg"
   },
   {
-    id: 7,
+    id: 8,
     date: "May 13, 2026",
     title: "Lock Up Your Daughters Tour - SMOKING SNAKES & SUICIDE BOMBERS",
     location: "Kulturfabrik Kufstein, Kufstein, Austria",
@@ -338,7 +349,7 @@ const allTours = [
     backgroundImage: "https://cdn.reservix.com/core/img/event/detailEvent_2487908.jpg"
   },
   {
-    id: 8,
+    id: 9,
     date: "May 14, 2026",
     title: "Lock Up Your Daughters Tour - SMOKING SNAKES & SUICIDE BOMBERS",
     location: "Rocketclub, Landshut, Germany",
@@ -349,7 +360,7 @@ const allTours = [
     backgroundImage: "https://cdn.reservix.com/core/img/event/detailEvent_2487908.jpg"
   },
   {
-    id: 9,
+    id: 10,
     date: "May 15, 2026",
     title: "Lock Up Your Daughters Tour - SMOKING SNAKES / SUICIDE BOMBERS / CRAZY69",
     location: "BACKSTAGE Kultur- und Veranstaltungszentrum, Munich, Germany",
@@ -360,7 +371,7 @@ const allTours = [
     backgroundImage: "https://cdn.reservix.com/core/img/event/detailEvent_2487908.jpg"
   },
   {
-    id: 10,
+    id: 11,
     date: "May 16, 2026",
     title: "Mayhem Rock Festival",
     location: "Nottingham, UK",
