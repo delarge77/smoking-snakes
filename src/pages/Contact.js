@@ -657,7 +657,6 @@ const Contact = () => {
                   <InfoValue>
                     <strong>Bookings:</strong><br />
                     <div style={{ marginLeft: '1rem', marginTop: '0.5rem' }}>
-                      <strong>Sweden:</strong> jelencovich@me.com<br />
                       <strong>Germany:</strong> anita@be-alive.eu<br />
                       <a href="https://be-alive.eu" target="_blank" rel="noopener noreferrer" style={{ color: '#ff0000', textDecoration: 'none' }}>be-alive.eu</a>
                     </div>
