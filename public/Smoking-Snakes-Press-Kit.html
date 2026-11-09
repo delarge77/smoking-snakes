@@ -66,6 +66,13 @@
         }
         .hero-image {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+        .album-block {
             text-align: center;
         }
         .album-cover {
@@ -74,6 +81,14 @@
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 3px solid #ff0000;
+            object-fit: cover;
+        }
+        .album-caption {
+            color: #cccccc;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .members-grid {
             display: grid;
@@ -310,7 +325,7 @@
 <body>
     <div class="header">
         <h1 class="band-name">Smoking Snakes</h1>
-        <p class="subtitle">Official Press Kit</p>
+        <p class="subtitle">Official Press Kit · Sleaze Metal / Hard Rock</p>
         <div class="download-section">
             <a href="#" onclick="window.print(); return false;" class="download-btn">📄 Print / Save as PDF</a>
         </div>
@@ -320,11 +335,22 @@
         <h2 class="section-title">Band Overview</h2>
         <div class="hero-section">
             <div class="hero-text">
-                <p>Smoking Snakes is a Gothenburg-based sleaze metal band that's turning heads and making waves in the rock scene. Formed in 2022, they are the next generation of hard-hitting, guitar-driven rock 'n' roll.</p>
-                <p>Influenced by the big arena rock bands of the 80s like W.A.S.P, RATT, Dokken, and Kiss, their music is a fresh and modern take on classic sleaze metal. From catchy hooks to heavy riffs and powerful vocals, they've got a sound that's all their own.</p>
+                <p>Smoking Snakes are a Gothenburg-based Swedish sleaze metal and hard rock band combining the attitude and swagger of '80s glam metal with the power, hooks and energy of modern hard rock.</p>
+                <p>Formed in 2022, the band have quickly established an international profile through their debut album <strong>Danger Zone</strong>, released worldwide through Frontiers Music Srl in 2024, and their follow-up album <strong>All Lights On</strong>, released in 2026.</p>
+                <p>Drawing inspiration from the golden era of hard rock and sleaze metal, including W.A.S.P., RATT, Dokken and KISS, Smoking Snakes deliver a sound built around infectious choruses, powerful vocals, razor-sharp guitar riffs and soaring melodies.</p>
+                <p>With two albums released through Frontiers Music Srl, international touring experience, Rocknytt Prize recognition and a reputation for delivering energetic live performances, Smoking Snakes continue to build their profile on stage and on record.</p>
+                <p><strong>Style:</strong> Sleaze Metal / Hard Rock / Glam Metal / Scandinavian Rock<br>
+                <strong>For fans of:</strong> W.A.S.P., RATT, Dokken, KISS, and classic '80s hard rock and sleaze metal</p>
             </div>
             <div class="hero-image">
-                <img src="/danger-zone-album-cover.jpg" alt="Danger Zone Album Cover" class="album-cover">
+                <div class="album-block">
+                    <img src="/danger-zone-album-cover.jpg" alt="Danger Zone Album Cover" class="album-cover">
+                    <div class="album-caption">Danger Zone</div>
+                </div>
+                <div class="album-block">
+                    <img src="/all-lights-on-album-cover.jpg" alt="All Lights On Album Cover" class="album-cover">
+                    <div class="album-caption">All Lights On</div>
+                </div>
             </div>
         </div>
     </div>
@@ -333,48 +359,56 @@
         <h2 class="section-title">Band Members</h2>
         <div class="members-grid">
             <div class="member-card">
-                <img src="/Brett.jpg" alt="Brett Martin" class="member-photo">
                 <div class="member-name">Brett Martin</div>
                 <div class="member-role">Lead vocals, rhythm guitar</div>
             </div>
             <div class="member-card">
-                <img src="/Andy.jpg" alt="Andy Delarge" class="member-photo">
                 <div class="member-name">Andy Delarge</div>
                 <div class="member-role">Bass, backing vocals</div>
             </div>
             <div class="member-card">
-                <img src="/Mackey.jpg" alt="Mackey Gee" class="member-photo">
                 <div class="member-name">Mackey Gee</div>
                 <div class="member-role">Drums, backing vocals</div>
             </div>
             <div class="member-card">
-                <img src="/Rob.jpg" alt="Rob Raw" class="member-photo">
-                <div class="member-name">Rob Raw</div>
+                <div class="member-name">Rick Styles</div>
                 <div class="member-role">Lead guitar, backing vocals</div>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <h2 class="section-title">Debut Album: "Danger Zone"</h2>
+        <h2 class="section-title">Biography</h2>
+        <p>Emerging from Gothenburg, Sweden, Smoking Snakes were formed in 2022 with a clear mission: to bring the attitude, energy and larger-than-life spirit of classic '80s hard rock and sleaze metal into the modern era.</p>
+        <p>Featuring Brett Martin on lead vocals and rhythm guitar, Andy Delarge on bass and backing vocals, Mackey Gee on drums and backing vocals, and Rick Styles on lead guitar and backing vocals, the band quickly developed a sound that combines the melodic strengths of classic hard rock with the raw edge and swagger of Scandinavian sleaze metal.</p>
+        <p>Their influences include W.A.S.P., RATT, Dokken and KISS, but Smoking Snakes bring their own identity to the genre through memorable songwriting, infectious hooks, powerful guitar work and an unmistakable sense of rock 'n' roll attitude.</p>
+        <p>Even before the release of their debut album, the band were attracting attention. With only a handful of singles available, Smoking Snakes became the most-voted act to perform at the iconic Time To Rock festival.</p>
+        <p>Their debut full-length album, <strong>Danger Zone</strong>, arrived in 2024 through international rock and metal label Frontiers Music Srl. The album received an impressive response from the international rock press. Metal Temple awarded the record a perfect 10/10, describing it as a sleaze metal masterpiece, while Metal Forces Magazine awarded it 8/10 and praised its driving heavy rock, swagger and infectious energy. Metal-Roos also recognised the album's quality, describing it as a breathtaking debut with an Album of the Year aura.</p>
+        <p>Further recognition followed when Danger Zone became a finalist in two categories at the Rocknytt Prize: Album of the Year and Breakthrough Artist of the Year.</p>
+        <p>In 2026, Smoking Snakes returned with their second album, <strong>All Lights On</strong>, again released through Frontiers Music Srl. The new record represents the natural evolution of the band's songwriting, expanding their musical identity while retaining the classic hard rock foundations, sleaze metal attitude and arena-ready choruses that first brought them attention.</p>
+        <p>Alongside their growing catalogue, Smoking Snakes have continued developing their international live presence, performing across Sweden and Europe, including UK festival appearances and international touring dates.</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Discography</h2>
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-number">2024</div>
-                <div class="stat-label">Release Year</div>
+                <div class="stat-number">2</div>
+                <div class="stat-label">Full-Length Albums</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number">Frontiers</div>
-                <div class="stat-label">Record Label</div>
+                <div class="stat-label">Music Srl</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">Jakob Herrmann</div>
-                <div class="stat-label">Producer</div>
+                <div class="stat-number">2024 / 2026</div>
+                <div class="stat-label">Release Years</div>
             </div>
         </div>
-        <p><strong>Released:</strong> February 9, 2024</p>
-        <p><strong>Producer:</strong> Jakob Herrmann (Top Floor Studios)</p>
-        <p><strong>Label:</strong> Frontiers Records</p>
-        <p>Jakob Herrmann is known for his work with acclaimed acts such as Amaranthe, Raised Fist, Evergrey, Anthrax, Europe and Hardcore Superstar.</p>
+        <p><strong>Danger Zone</strong> — 2024 · Frontiers Music Srl</p>
+        <p>Released February 9, 2024. Produced by Jakob Herrmann at Top Floor Studios. Herrmann is known for his work with Amaranthe, Raised Fist, Evergrey, Anthrax, Europe and Hardcore Superstar.</p>
+        <p><strong>All Lights On</strong> — 2026 · Frontiers Music Srl</p>
+        <p>The follow-up expands the band's songwriting while keeping the classic hard rock foundations, sleaze metal attitude and arena-ready choruses of the debut. Both albums are available through major digital music platforms.</p>
     </div>
 
     <div class="section">
@@ -385,7 +419,7 @@
         </div>
         <div class="review-item">
             <div class="review-source">Metal Forces Magazine - 8/10</div>
-            <div class="review-quote">"Strong debut full-length of driving heavy rock" with "swaggering metal that attracts the girls, kicks down doors and revs engines." Neil Arnold calls us "my new favourite band."</div>
+            <div class="review-quote">"Strong debut full-length of driving heavy rock." Neil Arnold: "Swaggering metal that attracts the girls, kicks down doors and revs engines." He also calls the band "my new favourite band."</div>
         </div>
         <div class="review-item">
             <div class="review-source">Metal-Roos - Album of the Year Contender</div>
@@ -395,54 +429,45 @@
 
     <div class="section">
         <h2 class="section-title">Awards & Recognition</h2>
-        <p>Danger Zone was double-nominated at Rocknyttpriset 2024:</p>
+        <p>Danger Zone was a finalist in two categories at the Rocknytt Prize 2024:</p>
         <ul>
             <li>Album of the Year</li>
-            <li>Breakthrough of the Year</li>
+            <li>Breakthrough Artist of the Year</li>
         </ul>
-        <p>These nods cemented Smoking Snakes as one of Sweden's fastest-rising rock acts.</p>
+        <p>Signed to Frontiers Music Srl, with two albums released worldwide and featured on major international stages.</p>
     </div>
 
     <div class="section">
-        <h2 class="section-title">Festival Appearances</h2>
+        <h2 class="section-title">Highlights &amp; Live History</h2>
         <ul>
-            <li>Time To Rock Festival - Most-voted act to perform (even before album release)</li>
-            <li>Mayhem Rock Festival 2025 - London, Nottingham, Wakefield</li>
-            <li>Eden Rock Festival - Uppsala</li>
+            <li>Selected as the most-voted act to perform at the iconic Time To Rock festival, even before the debut album was released.</li>
+            <li>Debut album Danger Zone released worldwide in 2024 through Frontiers Music Srl.</li>
+            <li>Second album All Lights On released in 2026 through Frontiers Music Srl.</li>
+            <li>Finalist nominations at the Rocknytt Prize for Album of the Year and Breakthrough Artist of the Year.</li>
+            <li>International touring experience across Sweden and Europe.</li>
+            <li>UK festival appearances, including Mayhem Rock Festival (London, Nottingham and Wakefield).</li>
+            <li>Performed at Frontiers Rock Festival in Italy in May 2026.</li>
+            <li>Completed the May 2026 Lock Up Your Daughters touring dates alongside Suicide Bombers and Crazy69.</li>
+            <li>Eden Rock Festival, Uppsala.</li>
+            <li>International press recognition from Metal Temple, Metal Forces Magazine and Metal-Roos.</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2 class="section-title">Recent Shows</h2>
+        <h2 class="section-title">What Smoking Snakes Bring Live</h2>
         <ul>
-            <li>Belsepub: Sleaze & Hardrock Night - Gothenburg</li>
-            <li>Qvänum Live</li>
-            <li>Belsepub: Metal-Rock Night - Gothenburg</li>
+            <li>High-energy Swedish sleaze metal and hard rock.</li>
+            <li>Powerful lead vocals and memorable melodies.</li>
+            <li>Razor-sharp guitar riffs and electrifying lead work.</li>
+            <li>Big, infectious and audience-friendly choruses.</li>
+            <li>Classic '80s attitude with a modern edge.</li>
+            <li>Strong musicianship and energetic stage performances.</li>
+            <li>Audience interaction and an engaging live presence.</li>
+            <li>International touring and festival experience.</li>
+            <li>Two full-length albums released through Frontiers Music Srl.</li>
+            <li>A catalogue of material designed for rock clubs and festival audiences.</li>
         </ul>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Upcoming Tour Dates</h2>
-        <div class="tour-date">
-            <div class="date">September 06, 2025</div>
-            <div class="venue">Fortress of Rock 2025</div>
-            <div class="location">Bohus Fästning, Kungälv</div>
-        </div>
-        <div class="tour-date">
-            <div class="date">September 27, 2025</div>
-            <div class="venue">Café 1851 (Fd Folk å Rock)</div>
-            <div class="location">Club Bonksy, Malmö</div>
-        </div>
-        <div class="tour-date">
-            <div class="date">October 29, 2025</div>
-            <div class="venue">Shakedown suzies + Smoking Snakes + LA Cobra + Firebombs</div>
-            <div class="location">Sofiehof Underjord, Jönköping</div>
-        </div>
-        <div class="tour-date">
-            <div class="date">October 30, 2025</div>
-            <div class="venue">L.A. COBRA + SMOKING SNAKES</div>
-            <div class="location">ENCORE, Sundbyberg</div>
-        </div>
+        <p>Expect big riffs, huge choruses and Scandinavian sleaze metal with the volume turned up. Performances are built around energy, attitude, audience interaction and the spirit of '80s rock 'n' roll, from intimate club stages to larger festival environments.</p>
     </div>
 
     <div class="section">
@@ -455,7 +480,7 @@
             <div class="contact-item">
                 <span class="contact-label">Bookings:</span>
                 <div class="contact-value">
-                    <div>Sweden: jelencovich@me.com</div>
+                    <div>UK: info@beastmakermusic.com · 07348 578790</div>
                     <div>Germany: anita@be-alive.eu</div>
                 </div>
             </div>
@@ -536,7 +561,7 @@
 
     <div class="section">
         <h2 class="section-title">Current Status</h2>
-        <p>Smoking Snakes is currently recording their second album, building on the success of their critically acclaimed debut "Danger Zone."</p>
+        <p>Smoking Snakes have released two full-length albums through Frontiers Music Srl: Danger Zone (2024) and All Lights On (2026), and continue to tour internationally.</p>
     </div>
 
     <div class="footer">
