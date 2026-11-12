@@ -658,6 +658,7 @@ const Contact = () => {
                     <strong>Bookings:</strong><br />
                     <div style={{ marginLeft: '1rem', marginTop: '0.5rem' }}>
                       <strong>Germany:</strong> anita@be-alive.eu<br />
+                      <strong>U.K.:</strong> info@beastmakermusic.com<br />
                       <a href="https://be-alive.eu" target="_blank" rel="noopener noreferrer" style={{ color: '#ff0000', textDecoration: 'none' }}>be-alive.eu</a>
                     </div>
                   </InfoValue>
